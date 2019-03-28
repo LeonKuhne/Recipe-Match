@@ -39,10 +39,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-// start listening on port
-let port = config.server.port
-app.listen(port, ()=>{
-  console.log(`App is listening on port: ${port}`)
-})
-
 module.exports = app;
