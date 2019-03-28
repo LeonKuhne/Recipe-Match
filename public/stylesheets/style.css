@@ -1,6 +1,19 @@
 body {
-  padding: 50px;
+  display: flex;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.header {
+  flex: 2;
+}
+
+.content {
+  flex: 1;
+}
+
+.taskbar {
+  flex: 1;
+  width: 50px;
 }
 
 a {
