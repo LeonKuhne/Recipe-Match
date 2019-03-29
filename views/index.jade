@@ -1,5 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div(class='home-page')
+    div(class='search-view ingredients-page')
+      input(class='search-bar ingredients-search', type='text', placeholder="Search by ingredients...")
+    div(class='search-view recipes-page')
+      input(class='search-bar', type='text', placeholder='Search by name...')
