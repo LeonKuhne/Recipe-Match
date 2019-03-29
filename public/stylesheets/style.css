@@ -46,6 +46,8 @@ body {
 }
 
 .search-bar {
+  padding: 5px;
+  font-size: 20px;
   margin: auto;
   vertical-align: -webkit-baseline-middle;
   min-width: 500px;
@@ -77,6 +79,26 @@ body {
   max-width: 70px;
   background-color: #da2d2d;
   float: right;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-recipes {
+  display: block;
+  flex: 1;
+  background-image: url("https://cdn4.iconfinder.com/data/icons/food-outline-set-2/91/Food_142-512.png");
+  max-width: 50px;
+  max-height: 50px;
+  background-size: 50px 50px;
+  margin: 10px;
+}
+
+.nav-link {
+  background-color: yellow;
+}
+
+.nav-link :hover {
+  background-color: blue;
 }
 
 a {
