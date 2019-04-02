@@ -48,6 +48,17 @@ body {
 .search-view {
   flex: 1;
   display: flex;
+  flex-direction: column;
+}
+
+.tall {
+  margin-top: 50px !important;
+  margin-bottom: 50px !important;
+}
+
+.scrunch {
+  padding-right: 200px;
+  padding-left: 200px;
 }
 
 .search-bar {
@@ -108,4 +119,19 @@ body {
 
 a {
   color: #00B7FF;
+}
+
+.search-results {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  width: auto;
+}
+
+.recipe-card {
+  background-color: grey;
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  margin: auto;
 }
