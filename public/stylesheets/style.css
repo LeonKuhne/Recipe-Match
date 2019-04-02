@@ -51,6 +51,7 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 0px;
+  overflow: hidden;
 }
 
 .selected-page {
