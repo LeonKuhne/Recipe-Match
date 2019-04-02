@@ -1,9 +1,7 @@
 function redirect(url, delay=0){
-  if(document.location.href !== url) {
-    setTimeout(()=>{
-      document.location.href = url;
-    }, delay)
-  }
+  setTimeout(()=>{
+    document.location.href = url;
+  }, delay)
 }
 
 function loadHome(){
@@ -52,7 +50,7 @@ window.onload = () => {
   })
 
   // only homepage
-  if(document.location.href === '/') {
+  if(document.location.pathname === '/') {
     loadHome() 
   }
   // recipe card click
