@@ -53,6 +53,7 @@ window.onload = () => {
   if(document.location.pathname === '/') {
     loadHome() 
   }
+
   // recipe card click
   $('.recipe-card').click(()=>{
     // create a recipe card detailed view
@@ -61,10 +62,10 @@ window.onload = () => {
     // TODO get details for recipe with api call here
     
     $('.search-view').append('<div class="popup-bg"><div class="recipe-card-back" /></div>')
-    return false;
-  })
+    $('.popup-bg').click(()=>{
+      $('.popup-bg').remove()
+    })
 
-  $('.recipe-card-back').click(()=>{
-    $('.popup-bg').remove()
+    return false;
   })
 }
