@@ -50,6 +50,7 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-width: 0px;
 }
 
 .selected-page {
@@ -80,6 +81,21 @@ body {
   to {
     min-width: 55%;
   }
+}
+
+@keyframes expand-full {
+  from {
+    min-width: 55%;
+  }
+  to {
+    min-width: 100%;
+  }
+}
+
+.expand {
+  animation-duration: .5s;
+  animation-name: expand-full;
+  min-width: 100%;
 }
 
 .tall {
