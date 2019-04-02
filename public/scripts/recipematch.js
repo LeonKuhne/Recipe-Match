@@ -1,9 +1,12 @@
-window.onload = () => {
-  //$('.ingredients-search').selectize()
-  $('.logo').click(()=>{
-    document.location.href="/";
-  })
+function redirect(url, delay=0){
+  if(document.location.href !== url) {
+    setTimeout(()=>{
+      document.location.href = url;
+    }, delay)
+  }
+}
 
+function loadHome(){
   // autofocus on homepage
   $('.ingredients-page').hover(()=>{
     $('.ingredients-page').addClass('selected-page')
@@ -32,15 +35,38 @@ window.onload = () => {
   // links on homepage
   $('.ingredients-page').click(()=>{
     $('.ingredients-page').addClass('expand');
-    setTimeout(()=>{
-      document.location.href="/search/ingredients";
-    }, 500)
+    redirect('/search/ingredients', 500)
   })
 
   $('.recipes-page').click(()=>{
     $('.recipes-page').addClass('expand');
-    setTimeout(()=>{
-      document.location.href="/search/recipes";
-    }, 500)
+    redirect('/search/recipes', 500)
+  })
+
+}
+
+window.onload = () => {
+  //$('.ingredients-search').selectize()
+  $('.logo').click(()=>{
+    redirect('/')
+  })
+
+  // only homepage
+  if(document.location.href === '/') {
+    loadHome() 
+  }
+  // recipe card click
+  $('.recipe-card').click(()=>{
+    // create a recipe card detailed view
+    let recipeId = $(this).attr('recipe-id')
+    
+    // TODO get details for recipe with api call here
+    
+    $('.search-view').append('<div class="popup-bg"><div class="recipe-card-back" /></div>')
+    return false;
+  })
+
+  $('.recipe-card-back').click(()=>{
+    $('.popup-bg').remove()
   })
 }
