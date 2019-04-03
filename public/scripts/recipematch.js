@@ -4,6 +4,19 @@ function redirect(url, delay=0){
   }, delay)
 }
 
+function addInput(element){
+  var inputList = element.firstElementChild;
+  var lastInput = inputList.lastElementChild;
+  var newInput = lastInput.cloneNode(true);
+  var id = newInput.id.split("-");
+  newInput.id = id[0] + "-" + (parseInt(id[1]) + 1);
+  inputList.append(newInput);
+}
+
+function closeForm(){
+    $('.popup-bg').remove();
+}
+
 function loadHome(){
   // autofocus on homepage
   $('.ingredients-page').hover(()=>{
@@ -19,13 +32,13 @@ function loadHome(){
     $('.ingredients-search').focusout()
     $('.ingredients-search').css('border-color', 'black')
   })
-  
+
   $('.recipes-page').hover(()=>{
     $('.recipes-page').addClass('selected-page')
     $('.recipes-page').removeClass('deselected-page')
     $('.recipe-search').focus()
     $('.recipe-search').css('border-color', 'red')
-    
+
     $('.ingredients-page').removeClass('deselected-page')
   }, ()=>{
     $('.recipes-page').removeClass('selected-page')
@@ -55,7 +68,7 @@ window.onload = () => {
 
   // only homepage
   if(document.location.pathname === '/') {
-    loadHome() 
+    loadHome();
   }
 
   // recipe card click
@@ -100,7 +113,7 @@ window.onload = () => {
         break;
     }
 
-    
+
     $('.search-view').append(`<div class="popup-bg"><div class="recipe-card-back">${
       JSON.stringify(recipeData)
     }</div></div>`)
@@ -109,5 +122,113 @@ window.onload = () => {
     })
 
     return false;
-  })
+  });
+
+  $('.addRecipeButton').click(()=>{
+    $('.search-view').append(
+      `<div class="popup-bg">
+        <div class="recipe-card-back">
+          <div class="popupEl banner" id="addRecipeBanner">
+            <button onclick="closeForm();" class = "formCloseButton">X</button>
+            Add Recipe
+          </div>
+          <div class="popupEl banner" id="addRecipeImg">
+            <div>Upload Image</div>
+            <i id="uploadIcon" class="fas fa-upload fa-lg"></i>
+          </div>
+          <div class = "popupEl formInputs">
+            <div class="inputContainer">
+              <div>Name:</div>
+              <input class="addRecipeInput" type="text" id="recipeName" placeholder="ex: Pad Thai">
+            </div>
+          </div>
+          <div class = "popupEl formInputs">
+            <div class="inputContainer">
+              <div>Description:</div>
+              <textarea class="addRecipeInput" style="resize:none" rows="5" cols="40" type="text" id="recipeDesc" placeholder="ex: Pad Thai is a stir-fried rice noodle dish commonly served as street food and at most restaurants in Thailand."></textarea>
+            </div>
+          </div>
+          <div class = "popupEl formInputs">
+            <div class="inputContainer">
+              <div>Time:</div>
+              <span class="numInputContainer">
+                <input class="numInput" id="inputDay" type="number" value="0"> D
+              </span>
+              <span class="numInputContainer">
+                <input class="numInput" id="inputHr" type="number" value="0"> H
+              </span>
+              <span class="numInputContainer">
+                <input class="numInput" id="inputM" type="number" value="0"> M
+              </span>
+            </div>
+          </div>
+          <div class = "popupEl formInputs">
+            <div class="inputContainer">
+              <div>Difficulty:</div>
+              <span class="difficultyLvl novice">Novice</span>
+              <span class="difficultyLvl expert">Expert</span>
+              <div>
+                <input type="range" min="1" max="100" value="50" class="slider" id="diffRange">
+              </div>
+            </div>
+          </div>
+          <div class = "popupEl formInputs">
+            <div class="inputContainer">
+              <div>Cuisine:</div>
+              <input class="addRecipeInput" type="text" id="recipeCuisine" placeholder="ex: Asian">
+            </div>
+          </div>
+          <div class = "popupEl formInputs">
+            <div class="inputContainer">
+              <div>Ingredients:</div>
+              <div class="inputEl" id="ingredientInputs">
+                <div id="ingredientList">
+                  <div id="ingredient-0" class="addableInput">
+                    <span style="padding-right:5px;">
+                      <input style="width:35px;" type="number" value="1">
+                    </span>
+                    <span style="padding-right:5px;">
+                      <select>
+                        <option value="tsp">tsp</option>
+                        <option value="tbsp">tbsp</option>
+                        <option value="fl-oz">fl-oz</option>
+                        <option value="oz">oz</option>
+                        <option value="c">c</option>
+                        <option value="pt">pt</option>
+                        <option value="qt">qt</option>
+                        <option value="gal">gal</option>
+                      </select>
+                    </span>
+                    <input class="addRecipeInput" style="width:110px;" type="text" placeholder="ex: salt">
+                  </div>
+                </div>
+                <button onclick="addInput(this.parentElement);" class="addInputButton">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class = "popupEl formInputs">
+            <div class="inputContainer">
+              <div>Instructions:</div>
+              <div id="instructionInputs">
+                <div class="inputEl" id="instructionList">
+                  <div id="instruction-0" class="addableInput">
+                    <input class="addRecipeInput" type="text" id="recipeCuisine" placeholder="ex: mix 2 cups of eggs">
+                  </div>
+                </div>
+                <button onclick="addInput(this.parentElement);" class="addInputButton">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class = "popupEl addRecipeSubmit">
+            <button style="background:green; border:solid green">Save</button>
+            <button style="background:red; border:solid red">Cancel</button>
+          </div>
+        </div>
+       </div>`
+    )
+    return false;
+  });
+
 }

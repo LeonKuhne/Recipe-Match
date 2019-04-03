@@ -2,20 +2,21 @@ doctype html
 html
   head
     title= title
+    link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous")
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(src="/scripts/recipematch.js")
     script(src="/scripts/jquery.min.js")
     script(src="/scripts/selectize.min.js")
   body
-    div(class='header') 
+    div(class='header')
       div(class='logo') Recipe Match
     div(class='page')
       div(class='content')
         block content
       div(class='taskbar')
-        div(class='nav-recipes' tooltip='Recipes')
-          //a(class='nav-link' href="/search/recipes") Recipes
-        div(class='nav-ingredients' tooltip='Ingredients')
-          //a(class='nav-link' href="/search/ingredients") Ingredients
-        div(class='nav-my-recipes' tooltip='My Recipes')
-          //a(class='nav-link' href="/search/my-recipes") My Recipes
+        div(class='nav-recipes')
+          a(class='nav-link' href="/search/recipes") Recipes
+        div(class='nav-ingredients')
+          a(class='nav-link' href="/search/ingredients") Ingredients
+        div(class='nav-my-recipes')
+          a(class='nav-link' href="/search/my-recipes") My Recipes

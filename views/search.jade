@@ -4,6 +4,9 @@ block content
   div(class='search-view #{ pageStyle } full')
     input(class='search-bar #{ searchType } tall', type='text', placeholder="Search by ingredients...")
     div(class='search-results scrunch')
+      if pageStyle === 'my-recipes-page'
+        button(class = 'addRecipeButton') Add Recipe
+          div +
       each elem in searchResults
         div(class='recipe-card' id='recipe-#{elem.id}')
           div(class='card-picture') #{elem.picture}

@@ -240,6 +240,49 @@ a {
   cursor: pointer;
 }
 
+.addRecipeButton{
+  background-color: #ff8484;
+  font-size: 25px;
+  border: solid black;
+}
+
+.addRecipeButton:hover{
+  background-color: #ff9999;
+}
+
+.popupEl{
+  width: inherit;
+  text-align: center;
+}
+
+.banner{
+  padding: 15px;
+}
+
+.formInputs{
+  padding: 5px;
+}
+
+#addRecipeBanner{
+  position: relative;
+  background-color: #ff8484;
+  font-size: 30px;
+}
+
+#addRecipeImg{
+  background-color: white;
+  height:60px;
+}
+
+#uploadIcon{
+  padding-top: 15px;
+  transform: scale(2);
+}
+
+.inputName{
+  text-align: left;
+}
+
 .recipe-card > div {
   background-color: #ff8484;
   text-align: center;
@@ -251,7 +294,60 @@ a {
 .card-duration { grid-area: time; }
 .card-difficulty{ grid-area: diff; }
 
-.recipe-card-back {
+.formCloseButton{
+  position: absolute;
+  top:0px;
+  right:0px;
+}
+
+.inputContainer{
+  width:250px;
+  text-align: left;
+  margin:auto;
+}
+
+.numInput{
+  width:45px;
+}
+
+.addInputButton{
+  border-radius: 5px;
+  background-color: green;
+  color:white;
+  border:green;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#instructionInputs, #ingredientInputs{
+  display:inline-block;
+}
+
+.numInputContainer{
+  padding-right: 15px;
+}
+
+.addRecipeSubmit{
+  padding-bottom: 20px;
+}
+
+.difficultyLvl{
+  width: 20px;
+}
+.novice{
+  color:green;
+  padding-right:40px;
+  text-align: left;
+}
+.expert{
+  color:red;
+}
+
+.addRecipeInput{
+  width:inherit;
+}
+
+.recipe-card-back, .add-recipe-form {
   background-color: yellow;
   max-width: 400px;
   min-height: 400px;
