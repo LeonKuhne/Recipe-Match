@@ -4,13 +4,18 @@ function redirect(url, delay = 0) {
   }, delay)
 }
 
-function addInput(element) {
+function addInput(element, isInstruction) {
   var inputList = element.firstElementChild;
   var lastInput = inputList.lastElementChild;
   var newInput = lastInput.cloneNode(true);
   var id = newInput.id.split("-");
   newInput.id = id[0] + "-" + (parseInt(id[1]) + 1);
+  newInput.firstElementChild
   inputList.append(newInput);
+}
+
+function uploadImg(element){
+  console.log("clicketh");
 }
 
 function closeForm() {
