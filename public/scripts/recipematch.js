@@ -37,12 +37,7 @@ function loadHome(){
     $('.recipes-page').addClass('selected-page')
     $('.recipes-page').removeClass('deselected-page')
     $('.recipe-search').focus()
-<<<<<<< HEAD
-
-=======
     $('.recipe-search').css('border-color', 'red')
-
->>>>>>> 5360ddb9da0b1e33eb63664976bc8568dbf8a356
     $('.ingredients-page').removeClass('deselected-page')
   }, ()=>{
     $('.recipes-page').removeClass('selected-page')
