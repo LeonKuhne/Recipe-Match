@@ -80,57 +80,37 @@ window.onload = () => {
     // create a recipe card detailed view
     let recipeId = $(this).closest('.recipe-card').attr('id')
 
-    // TODO NEVER impl api call
-    let recipeData;
-    switch (recipeId) {
-      case 'recipe-0':
-        // fresh potato
-        recipeData = {
-          id: 0,
-          picture: 'fresh.png',
-          title: 'Fresh Potato',
-          description: 'Izza big potato with lotz of sauze.',
-          duration: '2 hours',
-          difficulty: 'hard'
-        }
-        break;
-      case 'recipe-1':
-        // baked potato
-        recipeData = {
-          id: 1,
-          picture: 'baked.png',
-          title: 'Baked Potato',
-          description: 'Izza baked potato with lotz of sauze.',
-          duration: '30 min',
-          difficulty: 'easy'
-        }
-        break;
-      default:
-        recipeData = {
-          id: -1,
-          picture: 'default.png',
-          title: 'Default',
-          description: 'Time to eat paper.',
-          duration: '45 min',
-          difficulty: 'easy'
-        }
-        break;
-    }
+    // get the recipe data from the server
+    let recipeData = $.get('/recipes/?recipeId=' + recipeId, () => {
 
-
-    $('.search-view').append(`<div class="popup-bg"><div class="recipe-card-back">${
-      JSON.stringify(recipeData)
-      }</div></div>`)
-    $('.popup-bg').click(() => {
-      $('.popup-bg').remove()
+      $('.search-view').append(`<div class="popup-bg"><div class="recipe-card-back">${
+        JSON.stringify(recipeData)
+        }</div></div>`)
+      $('.popup-bg').click(() => {
+        $('.popup-bg').remove()
+      })
     })
 
     return false;
-  });
+  })
 
   $('.addRecipeButton').click(() => {
     $.get('/add_form.html', (formData) => {
       $('.search-view').html(formData)
+      $('#submit-form').click(() => {
+        let newRecipeData = {
+          picture: 'TODO',
+          title: $('#recipeName').val(),
+          description: $('#recipeDesc').val(),
+          duration: 'TODO',
+          difficulty: 'TODO'
+          // TODO ...
+          // this needs to be done for all data from the form
+        }
+
+        $.post("/recipes/add", newRecipeData)
+        redirect('/search/my-recipes')
+      })
     })
 
     return false;
