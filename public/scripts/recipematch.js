@@ -74,8 +74,9 @@ window.onload = () => {
   $('.recipe-card').click(function (event) {
     // create a recipe card detailed view
     let recipeId = $(this).closest('.recipe-card').attr('id')
+
+    // get the recipe data from the server
     let recipeData = $.get('/recipes/?recipeId=' + recipeId, () => {
-      console.log(recipeData)
 
       $('.search-view').append(`<div class="popup-bg"><div class="recipe-card-back">${
         JSON.stringify(recipeData)
