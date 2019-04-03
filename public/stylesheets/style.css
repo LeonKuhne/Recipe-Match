@@ -281,6 +281,9 @@ a {
   padding-top: 15px;
   transform: scale(2);
 }
+#uploadIcon:hover{
+  cursor: pointer;
+}
 
 .inputName{
   text-align: left;
@@ -322,6 +325,11 @@ a {
   vertical-align: top;
 }
 
+#instructionList, #ingredientList{
+  display: inline-block;
+  vertical-align: top;
+}
+
 #instructionInputs, #ingredientInputs{
   display:inline-block;
 }
@@ -331,32 +339,49 @@ a {
 }
 
 .addRecipeSubmit{
+  padding-top: 15px;
   padding-bottom: 20px;
 }
 
 .difficultyLvl{
-  width: 20px;
+  position: relative;
 }
+
+#diffContainer{
+  position: relative;
+  width: inherit;
+}
+
 .novice{
   color:green;
-  padding-right:40px;
-  text-align: left;
 }
 .expert{
+  position: absolute;
+  right:0px;
   color:red;
 }
 
-.addRecipeInput{
+.addRecipeInput, #sliderContainer, #diffRange{
   width:inherit;
+}
+
+#diffRange{
+  width:
+}
+
+.instructionInput{
+  width:220px;
 }
 
 .recipe-card-back, .add-recipe-form {
   background-color: yellow;
   max-width: 400px;
   min-height: 400px;
+  max-height: 500px;
   flex: 1;
   margin: auto;
   cursor: auto;
+  overflow-y: scroll;
 }
 
 .popup-bg {

@@ -1,0 +1,106 @@
+<div class="popup-bg">
+    <div class="recipe-card-back">
+        <div class="popupEl banner" id="addRecipeBanner">
+            <button onclick="closeForm();" class="formCloseButton">X</button>
+            Add Recipe
+        </div>
+        <div class="popupEl banner" id="addRecipeImg">
+            <div>Upload Image</div>
+            <i id="uploadIcon" onclick="uploadImg(this);" class="fas fa-upload fa-lg"></i>
+        </div>
+        <div class="popupEl formInputs">
+            <div class="inputContainer">
+                <div>Name:</div>
+                <input class="addRecipeInput" type="text" id="recipeName" placeholder="ex: Pad Thai">
+            </div>
+        </div>
+        <div class="popupEl formInputs">
+            <div class="inputContainer">
+                <div>Description:</div>
+                <textarea class="addRecipeInput" style="resize:none" rows="5" cols="40" type="text" id="recipeDesc"
+                    placeholder="ex: Pad Thai is a stir-fried rice noodle dish commonly served as street food and at most restaurants in Thailand."></textarea>
+            </div>
+        </div>
+        <div class="popupEl formInputs">
+            <div class="inputContainer">
+                <div>Time:</div>
+                <span class="numInputContainer">
+                    <input class="numInput" id="inputDay" type="number" value="0"> D
+                </span>
+                <span class="numInputContainer">
+                    <input class="numInput" id="inputHr" type="number" value="0"> H
+                </span>
+                <span class="numInputContainer">
+                    <input class="numInput" id="inputM" type="number" value="0"> M
+                </span>
+            </div>
+        </div>
+        <div class="popupEl formInputs">
+            <div class="inputContainer">
+                <div>Difficulty:</div>
+                <div id="diffContainer">
+                  <span class="difficultyLvl novice">Novice</span>
+                  <span class="difficultyLvl expert">Expert</span>
+                </div>
+                <div id="sliderContainer">
+                    <input type="range" min="1" max="100" value="50" class="slider" id="diffRange">
+                </div>
+            </div>
+        </div>
+        <div class="popupEl formInputs">
+            <div class="inputContainer">
+                <div>Cuisine:</div>
+                <input class="addRecipeInput" type="text" id="recipeCuisine" placeholder="ex: Asian">
+            </div>
+        </div>
+        <div class="popupEl formInputs">
+            <div class="inputContainer">
+                <div>Ingredients:</div>
+                <div class="inputEl" id="ingredientInputs">
+                    <div id="ingredientList">
+                        <div id="ingredient-1" class="addableInput">
+                            <span style="padding-right:5px;">
+                                <input style="width:35px;" type="number" value="1">
+                            </span>
+                            <span style="padding-right:5px;">
+                                <select>
+                                    <option value="tsp">tsp</option>
+                                    <option value="tbsp">tbsp</option>
+                                    <option value="fl-oz">fl-oz</option>
+                                    <option value="oz">oz</option>
+                                    <option value="c">c</option>
+                                    <option value="pt">pt</option>
+                                    <option value="qt">qt</option>
+                                    <option value="gal">gal</option>
+                                </select>
+                            </span>
+                            <input class="addRecipeInput" style="width:114px;" type="text" placeholder="ex: salt">
+                        </div>
+                    </div>
+                    <button onclick="addInput(this.parentElement, false);" class="addInputButton">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="popupEl formInputs">
+            <div class="inputContainer">
+                <div>Instructions:</div>
+                <div id="instructionInputs">
+                    <div class="inputEl" id="instructionList">
+                        <div id="instruction-1" class="addableInput">
+                            <span class="instructionNum">1.</span>
+                            <input class="addRecipeInput instructionInput" type="text" id="recipeCuisine"
+                                placeholder="ex: mix 2 cups of eggs">
+                        </div>
+                    </div>
+                    <button onclick="addInput(this.parentElement, true);" class="addInputButton">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="popupEl addRecipeSubmit">
+            <button id='submit-form' style="background:green; border:solid green">Save</button>
+            <button style="background:red; border:solid red">Cancel</button>
+        </div>
+    </div>
+</div>
