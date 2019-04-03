@@ -170,6 +170,7 @@ body {
   max-height: 50px;
   background-size: 50px 50px;
   margin: 10px;
+  cursor: pointer;
 }
 
 .nav-ingredients {
@@ -180,6 +181,7 @@ body {
   max-height: 50px;
   background-size: 50px 50px;
   margin: 10px;
+  cursor: pointer;
 }
 
 .nav-my-recipes {
@@ -190,6 +192,7 @@ body {
   max-height: 50px;
   background-size: 50px 50px;
   margin: 10px;
+  cursor: pointer;
 }
 
 .nav-link {

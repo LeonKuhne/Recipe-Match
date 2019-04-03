@@ -14,10 +14,7 @@ html
       div(class='content')
         block content
       div(class='taskbar')
-        div(class='nav-recipes')
-          a(class='nav-link' href="/search/recipes") Recipes
-        div(class='nav-ingredients')
-          a(class='nav-link' href="/search/ingredients") Ingredients
-        div(class='nav-my-recipes')
-          a(class='nav-link' href="/search/my-recipes") My Recipes
+        div(class='nav-recipes tooltip' onclick="location.href='/search/recipes';")
+        div(class='nav-ingredients tooltip' onclick="location.href='/search/ingredients';")
+        div(class='nav-my-recipes tooltip' onclick="location.href='/search/my-recipes';")
     
