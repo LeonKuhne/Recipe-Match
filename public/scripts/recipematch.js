@@ -23,24 +23,32 @@ function loadHome(){
     $('.ingredients-page').addClass('selected-page')
     $('.ingredients-page').removeClass('deselected-page')
     $('.ingredients-search').focus()
+    $('.ingredients-search').css('border-color', 'red')
 
     $('.recipes-page').removeClass('deselected-page')
   }, ()=>{
     $('.ingredients-page').removeClass('selected-page')
     $('.ingredients-page').addClass('deselected-page')
     $('.ingredients-search').focusout()
+    $('.ingredients-search').css('border-color', 'black')
   })
 
   $('.recipes-page').hover(()=>{
     $('.recipes-page').addClass('selected-page')
     $('.recipes-page').removeClass('deselected-page')
     $('.recipe-search').focus()
+<<<<<<< HEAD
 
+=======
+    $('.recipe-search').css('border-color', 'red')
+
+>>>>>>> 5360ddb9da0b1e33eb63664976bc8568dbf8a356
     $('.ingredients-page').removeClass('deselected-page')
   }, ()=>{
     $('.recipes-page').removeClass('selected-page')
     $('.recipes-page').addClass('deselected-page')
     $('.recipe-search').focusout()
+    $('.recipe-search').css('border-color', 'black')
   })
 
   // links on homepage
@@ -68,13 +76,51 @@ window.onload = () => {
   }
 
   // recipe card click
-  $('.recipe-card').click(()=>{
+  $('.recipe-card').click(function(event){
     // create a recipe card detailed view
-    let recipeId = $(this).attr('recipe-id')
+    let recipeId = $(this).closest('.recipe-card').attr('id')
 
-    // TODO get details for recipe with api call here
+    // TODO NEVER impl api call
+    let recipeData;
+    switch(recipeId) {
+      case 'recipe-0':
+        // fresh potato
+        recipeData = {
+          id: 0,
+          picture: 'fresh.png',
+          title: 'Fresh Potato',
+          description: 'Izza big potato with lotz of sauze.',
+          duration: '2 hours',
+          difficulty: 'hard'
+        }
+       break;
+      case 'recipe-1':
+        // baked potato
+        recipeData = {
+          id: 1,
+          picture: 'baked.png',
+          title: 'Baked Potato',
+          description: 'Izza baked potato with lotz of sauze.',
+          duration: '30 min',
+          difficulty: 'easy'
+        }
+        break;
+      default:
+        recipeData = {
+          id: -1,
+          picture: 'default.png',
+          title: 'Default',
+          description: 'Time to eat paper.',
+          duration: '45 min',
+          difficulty: 'easy'
+        }
+        break;
+    }
 
-    $('.search-view').append('<div class="popup-bg"><div class="recipe-card-back" /></div>')
+
+    $('.search-view').append(`<div class="popup-bg"><div class="recipe-card-back">${
+      JSON.stringify(recipeData)
+    }</div></div>`)
     $('.popup-bg').click(()=>{
       $('.popup-bg').remove()
     })

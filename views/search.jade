@@ -7,43 +7,9 @@ block content
       if pageStyle === 'my-recipes-page'
         button(class = 'addRecipeButton') Add Recipe
           div +
-      div(class='recipe-card' recipe-id='chicken4')
-        div(class='item1') Chicken Picture
-        div(class='item2') Chicken
-        div(class='item3') 2 Hours
-        div(class='item4') Hard
-      div(class='recipe-card')
-        div(class='item1') Picture
-        div(class='item2') Name
-        div(class='item3') Time
-        div(class='item4') Diff
-      div(class='recipe-card')
-        div(class='item1') Picture
-        div(class='item2') Name
-        div(class='item3') Time
-        div(class='item4') Diff
-      div(class='recipe-card')
-        div(class='item1') Picture
-        div(class='item2') Name
-        div(class='item3') Time
-        div(class='item4') Diff
-      div(class='recipe-card')
-        div(class='item1') Picture
-        div(class='item2') Name
-        div(class='item3') Time
-        div(class='item4') Diff
-      div(class='recipe-card')
-        div(class='item1') Picture
-        div(class='item2') Name
-        div(class='item3') Time
-        div(class='item4') Diff
-      div(class='recipe-card')
-        div(class='item1') Picture
-        div(class='item2') Name
-        div(class='item3') Time
-        div(class='item4') Diff
-      div(class='recipe-card')
-        div(class='item1') Picture
-        div(class='item2') Name
-        div(class='item3') Time
-        div(class='item4') Diff
+      each elem in searchResults
+        div(class='recipe-card' id='recipe-#{elem.id}')
+          div(class='card-picture') #{elem.picture}
+          div(class='card-title') #{elem.title}
+          div(class='card-duration') #{elem.duration}
+          div(class='card-difficulty') #{elem.difficulty}

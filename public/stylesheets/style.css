@@ -38,14 +38,20 @@ body {
 
 .content {
   flex: 1;
+  display: flex;
 }
 
 .home-page {
+  flex: 1;
   display: flex;
   flex-direction: row;
-  width: 100%;
+}
+
+.divider {
+  flex: 1;
+  background-color: black;
+  max-width: 4px;
   height: 100%;
-  max-width: 100%;
 }
 
 .search-view {
@@ -54,6 +60,7 @@ body {
   flex-direction: column;
   min-width: 0px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .selected-page {
@@ -117,7 +124,9 @@ body {
   font-size: 20px;
   margin: auto;
   vertical-align: -webkit-baseline-middle;
-  min-width: 500px;
+  min-width: 0;
+  width: 500px;
+  border-color: black;
 }
 
 .selectize-dropdown {
@@ -132,12 +141,14 @@ body {
   background-image: url("https://previews.123rf.com/images/seamartini/seamartini1607/seamartini160700121/59600549-vegetable-salad-ingredients-background-with-seamless-pattern-of-tomatoes-olives-and-onions-carrots-b.jpg");
   background-repeat: repeat;
   background-size: 400px 400px;
+  background-position: center;
 }
 
 .recipes-page {
   background-image: url("https://image.freepik.com/free-vector/food-pattern-design_1221-27.jpg");
   background-repeat: repeat;
   background-size: 400px 400px;
+  background-position: center;
 }
 
 .taskbar {
@@ -261,10 +272,10 @@ a {
   font-size: 30px;
 }
 
-.item1 { grid-area: pic; }
-.item2 { grid-area: name; }
-.item3 { grid-area: time; }
-.item4 { grid-area: diff; }
+.card-picture { grid-area: pic; }
+.card-title { grid-area: name; }
+.card-duration { grid-area: time; }
+.card-difficulty{ grid-area: diff; }
 
 .formCloseButton{
   position: absolute;
@@ -325,6 +336,7 @@ a {
   min-height: 400px;
   flex: 1;
   margin: auto;
+  cursor: auto;
 }
 
 .popup-bg {
