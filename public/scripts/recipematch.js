@@ -38,7 +38,6 @@ function loadHome(){
     $('.recipes-page').removeClass('deselected-page')
     $('.recipe-search').focus()
     $('.recipe-search').css('border-color', 'red')
-
     $('.ingredients-page').removeClass('deselected-page')
   }, ()=>{
     $('.recipes-page').removeClass('selected-page')
