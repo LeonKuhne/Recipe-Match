@@ -150,7 +150,11 @@ window.onload = () => {
     $('.search-bar').focus()
   }
 
-  if ($('.search-bar').val() !== '' || document.location.pathname === '/search/my-recipes') {
+  // get the query params from the url
+  let queryParams = new URLSearchParams(window.location.search)
+
+  if (queryParams.has('query') || document.location.pathname === '/search/my-recipes') {
+    $('.search-bar').val(queryParams.get('query'))
     $('.search-bar-area').addClass('short')
     setTimeout(() => {
       $('.search-results').show()
@@ -191,11 +195,8 @@ window.onload = () => {
 
     // listen for the enter key
     if (e.keyCode == 13) {
-      location.reload()
-
       if (document.location.pathname === '/search/ingredients') {
         $('.ingredients-items').children('.ingredients-item').each((index, elem) => {
-          console.log(elem.textContent)
           searchText += elem.innerText
           if (index + 1 != $('.ingredients-items').children('.ingredients-item').length) {
             searchText += ', '
@@ -211,8 +212,7 @@ window.onload = () => {
       } else {
         searchText = searchFieldText
       }
-
-      $('.search-bar').val(searchText)
+      redirect(document.location.pathname + '?query=' + encodeURI(searchText))
     }
   })
 

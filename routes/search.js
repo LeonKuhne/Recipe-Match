@@ -3,7 +3,7 @@ var config = require('../config')
 var router = express.Router();
 
 router.get('/recipes', function (req, res, next) {
-  res.render('search', { title: 'Recipes', placeholder: 'Search by name...', pageStyle: 'recipes-page', searchResults: config.results.recipe });
+  res.render('search', { title: 'Recipes', placeholder: 'Search by name...', pageStyle: 'recipes-page', searchType: '', searchResults: config.results.recipe });
 });
 
 router.get('/ingredients', function (req, res, next) {
@@ -11,7 +11,7 @@ router.get('/ingredients', function (req, res, next) {
 });
 
 router.get('/my-recipes', function (req, res, next) {
-  res.render('search', { title: 'My Recipes', placeholder: 'Search my recipes...', pageStyle: 'my-recipes-page', searchResults: config.results.myRecipe });
+  res.render('search', { title: 'My Recipes', placeholder: 'Search my recipes...', pageStyle: 'my-recipes-page', searchType: '', searchResults: config.results.myRecipe });
 });
 
 module.exports = router;
