@@ -4,6 +4,16 @@ function redirect(url, delay = 0) {
   }, delay)
 }
 
+function getDifficulty(val){
+  if(val > 66){
+    return "Hard";
+  }else if(val < 66 && val > 33){
+    return "Medium";
+  }else{
+    return "Easy";
+  }
+}
+
 function addInput(element, isInstruction) {
   var inputList = element.firstElementChild;
   var lastInput = inputList.lastElementChild;
@@ -28,7 +38,7 @@ function saveRecipe(){
   var ingredientList = document.getElementById("ingredientList").children;
   var instructionList = document.getElementById("instructionList").children;
   var ingredientsArray=[];
-  var instructionArray = [];
+  var instructionsArray = [];
   for(var i=0; i<ingredientList.length; i++){
     var ingredient = ingredientList[i];
     ingredientsArray.push({
@@ -39,11 +49,18 @@ function saveRecipe(){
   }
   for(var j=0; j<instructionList.length; j++){
     var instruction = instructionList[j];
-    instructionArray.push(instruction.lastElementChild.value);
+    instructionsArray.push(instruction.lastElementChild.value);
   }
   var recipeInfo = {
-
+    name: recipeName,
+    desc: recipeDesc,
+    time: recipeTimeDay+"D-"+recipeTimeHr+"H-"+recipeTimeM+"M",
+    diff: getDifficulty(parseInt(recipeDiff)),
+    cuisine: recipeCuisine,
+    ingredients: ingredientsArray,
+    instructions: instructionsArray
   };
+  submitAddRecipe(recipeInfo);
 }
 
 function uploadImg(element){
@@ -154,15 +171,16 @@ window.onload = () => {
 
 }
 
-function submitAddRecipe() {
+function submitAddRecipe(recipeObj) {
   let newRecipeData = {
     picture: 'TODO',
-    title: $('#recipeName').val(),
-    description: $('#recipeDesc').val(),
-    duration: 'TODO',
-    difficulty: 'TODO'
-    // TODO ...
-    // this needs to be done for all data from the form
+    title: recipeObj.name,
+    description: recipeObj.desc,
+    duration: recipeObj.time,
+    difficulty: recipeObj.diff,
+    cuisine: recipeObj.cuisine,
+    ingredients: recipeObj.ingredients,
+    instructions: recipeObj.instructions
   }
 
   $.post("/recipes/add", newRecipeData)
