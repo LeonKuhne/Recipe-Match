@@ -15,7 +15,8 @@ block content
           div +
       each elem in searchResults
         div(class='recipe-card' id='recipe-#{elem.id}')
-          div(class='card-picture') #{elem.picture}
+          div(class='card-picture')
+            img(src='#{elem.picture}' style='height: 100%; width: 100%;')
           div(class='card-title') #{elem.title}
           div(class='card-duration') #{elem.duration}
           div(class='card-difficulty') #{elem.difficulty}

@@ -7,7 +7,7 @@ var config = {
   results: {
     recipe: [{
       id: 0,
-      picture: 'pasta.png',
+      picture: 'https://s23209.pcdn.co/wp-content/uploads/2014/03/IMG_2622edit.jpg',
       title: 'Pasta Carbonara',
       description: 'The no-food-in-the-house dinner of our dreams.',
       duration: '0D-1H-20M',
@@ -41,7 +41,7 @@ var config = {
     },
     {
       id: 1,
-      picture: 'lemon.png',
+      picture: 'https://www.bakedbyanintrovert.com/wp-content/uploads/2015/08/Lemon-Bars-Recipe-Image-1.jpg',
       title: 'Lemon Bars',
       description: 'Lemon bars on a shortbread base.',
       duration: '0D-0H-50M',
@@ -75,7 +75,7 @@ var config = {
     ],
     ingredients: [{
       id: 0,
-      picture: 'fresh.png',
+      picture: 'https://i.kym-cdn.com/entries/icons/original/000/011/269/potato.jpg',
       title: 'Fresh Potato',
       description: 'Izza big potato with lotz of sauze.',
       duration: '0D-2H-0M',
@@ -100,7 +100,7 @@ var config = {
     },
     {
       id: 1,
-      picture: 'baked.png',
+      picture: 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/7/26/1/EA1A02_the-baked-potato_s4x3.jpg.rend.hgtvcom.826.620.suffix/1371599862583.jpeg',
       title: 'Baked Potato',
       description: 'Izza baked potato with lotz of sauze.',
       duration: '0D-0H-30M',
@@ -128,7 +128,7 @@ var config = {
     ],
     myRecipe: [{
       id: 0,
-      picture: 'chicken.png',
+      picture: 'https://cdn-image.foodandwine.com/sites/default/files/styles/medium_2x/public/201404-xl-panko-chicken-parmesan.jpg?itok=a2KJsevW',
       title: 'Chicken Parmesan',
       description: 'Chicken with a crispy crust and less sauce than traditional.',
       duration: '0D-0H-45M',
