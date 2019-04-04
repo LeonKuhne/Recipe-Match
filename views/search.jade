@@ -1,8 +1,9 @@
 extends layout
 
 block content
-  div(class='search-view #{ pageStyle } full')
-    input(class='search-bar #{ searchType } tall', type='text', placeholder="Search by ingredients...")
+  div(class='search-view #{pageStyle} full')
+    div(class='search-bar-area')
+      input(class='search-bar #{searchType}', type='text', placeholder='#{placeholder}')
     div(class='search-results scrunch')
       if pageStyle === 'my-recipes-page'
         button(class = 'addRecipeButton') Add Recipe

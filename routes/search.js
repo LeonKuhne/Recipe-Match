@@ -3,15 +3,15 @@ var config = require('../config')
 var router = express.Router();
 
 router.get('/recipes', function (req, res, next) {
-  res.render('search', { title: 'Recipes', pageStyle: 'recipes-page', searchResults: config.results.recipe });
+  res.render('search', { title: 'Recipes', placeholder: 'Search by name...', pageStyle: 'recipes-page', searchResults: config.results.recipe });
 });
 
 router.get('/ingredients', function (req, res, next) {
-  res.render('search', { title: 'Ingredients', pageStyle: 'ingredients-page', searchType: 'ingredients_search', searchResults: config.results.ingredients });
+  res.render('search', { title: 'Ingredients', placeholder: 'Search by ingredients...', pageStyle: 'ingredients-page', searchType: 'ingredients_search', searchResults: config.results.ingredients });
 });
 
 router.get('/my-recipes', function (req, res, next) {
-  res.render('search', { title: 'My Recipes', pageStyle: 'my-recipes-page', searchResults: config.results.myRecipe });
+  res.render('search', { title: 'My Recipes', placeholder: 'Search my recipes...', pageStyle: 'my-recipes-page', searchResults: config.results.myRecipe });
 });
 
 module.exports = router;
