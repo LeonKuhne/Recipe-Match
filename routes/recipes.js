@@ -27,11 +27,13 @@ router.get('/', function (req, res, next) {
 
 /* Create new recipe. */
 router.post('/add', function (req, res, next) {
+  let results = config.results
+
   // add the recipe to the config
-  console.log('body:'+req.body)
-  console.log('before: '+config.results.myRecipe)
-  config.results.myRecipe.push(req.body)
-  console.log('after: '+config.results.myRecipe)
+  let recipe = req.body
+  recipes = results.recipe.concat(results.ingredients, results.myRecipe)
+  recipe.id = recipes.length + 1
+  config.results.myRecipe.push(recipe)
 
   res.status(200).send()
 });
