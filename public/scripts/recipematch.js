@@ -107,20 +107,6 @@ window.onload = () => {
   $('.addRecipeButton').click(() => {
     $.get('/add_form.html', (formData) => {
       $('.search-view').html(formData)
-      $('#submit-form').click(() => {
-        let newRecipeData = {
-          picture: 'TODO',
-          title: $('#recipeName').val(),
-          description: $('#recipeDesc').val(),
-          duration: 'TODO',
-          difficulty: 'TODO'
-          // TODO ...
-          // this needs to be done for all data from the form
-        }
-
-        $.post("/recipes/add", newRecipeData)
-        redirect('/search/my-recipes')
-      })
     })
 
     return false;
@@ -134,4 +120,19 @@ window.onload = () => {
     }
   })
 
+}
+
+function submitAddRecipe() {
+  let newRecipeData = {
+    picture: 'TODO',
+    title: $('#recipeName').val(),
+    description: $('#recipeDesc').val(),
+    duration: 'TODO',
+    difficulty: 'TODO'
+    // TODO ...
+    // this needs to be done for all data from the form
+  }
+
+  $.post("/recipes/add", newRecipeData)
+  redirect('/search/my-recipes')
 }
