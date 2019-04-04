@@ -140,13 +140,6 @@ body {
   border-color: black;
 }
 
-.search-button {
-  margin: auto;
-  vertical-align: -webkit-baseline-middle;
-  min-width: 0;
-  max-height: 24px;
-}
-
 .search-bar-area {
   flex: 1;
   display: flex;
