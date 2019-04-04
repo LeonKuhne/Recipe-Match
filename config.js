@@ -59,7 +59,7 @@ var config = {
           ingredientName: 'Potato'
         }
       ],
-      Instructions: [
+      instructions: [
         'Cut up potato',
         'Apply sauce to potato'
       ]
@@ -84,7 +84,7 @@ var config = {
           ingredientName: 'Potato'
         }
       ],
-      Instructions: [
+      instructions: [
         'Cut up potato',
         'Apply sauce to potato',
         'Set oven to 350',
