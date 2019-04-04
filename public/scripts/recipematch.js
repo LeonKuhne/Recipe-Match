@@ -65,7 +65,6 @@ function loadHome() {
 }
 
 window.onload = () => {
-  //$('.ingredients-search').selectize()
   $('.logo').click(() => {
     redirect('/')
   })
@@ -113,10 +112,41 @@ window.onload = () => {
   })
 
   $('.search-bar').keyup((e) => {
+    let searchText = ''
+    let searchFieldText = $(e.target).val()
+
     // listen for the enter key
     if (e.keyCode == 13) {
       location.reload()
-      $('.search-bar').val($(e.target).val())
+
+      if (document.location.pathname === '/search/ingredients') {
+        $('.ingredients-items').children('.ingredients-item').each((index, elem) => {
+          console.log(elem.textContent)
+          searchText += elem.innerText
+          if (index + 1 != $('.ingredients-items').children('.ingredients-item').length) {
+            searchText += ', '
+          }
+        })
+
+        searchText += ', ' + searchFieldText
+      } else {
+        searchText = searchFieldText
+      }
+
+      $('.search-bar').val(searchText)
+    }
+  })
+
+  // turn search bar into ingredients search bar
+  $('.ingredients-search').keyup((e) => {
+    // spacebar was pressed
+    if (e.keyCode == 32) {
+      let searchText = $(e.target).val()
+      if (searchText !== ' ') {
+        $('.ingredients-items').append('<div class="ingredients-item">' + searchText + '</div>')
+      }
+
+      $('.ingredients-search').val('')
     }
   })
 

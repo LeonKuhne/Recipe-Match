@@ -144,15 +144,32 @@ body {
 .search-bar-area {
   flex: 1;
   display: flex;
+  flex-direction: column;
   max-height: 100%;
 }
 
-.selectize-dropdown {
-  width: auto !important;
+.ingredients-search-container {
+  margin: auto;
 }
 
-.selectize-dropdown [data-selectable], .selectize-dropdown .optgroup-header {
-  white-space: nowrap;
+.ingredients-items {
+  max-height: 28px;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  width: 500px;
+  font: inherit;
+  text-align: center;
+  padding: 5px;
+}
+
+.ingredients-item {
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+  flex: 1;
+  background-color: white;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
 }
 
 .ingredients-page {
