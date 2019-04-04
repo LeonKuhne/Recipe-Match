@@ -138,7 +138,6 @@ body {
   width: 500px;
   max-height: 24px;
   border-color: black;
-  margin: auto;
 }
 
 .search-bar-area {
@@ -217,7 +216,7 @@ body {
 }
 
 .nav-my-recipes {
-  background-image: url("https://cdn0.iconfinder.com/data/icons/essentials-line/100/Agenda-512.png");
+  background-image: url("https://cdn3.iconfinder.com/data/icons/kitchen-17/342/kitchen_91-512.png");
 }
 
 .tooltip .tooltiptext {
@@ -385,10 +384,6 @@ a {
 
 .addRecipeInput, #sliderContainer, #diffRange{
   width:inherit;
-}
-
-#diffRange{
-  width:
 }
 
 .instructionInput{
