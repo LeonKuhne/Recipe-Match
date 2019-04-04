@@ -272,7 +272,7 @@ a {
 
 .search-results {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 325px 325px 325px 325px;
   grid-gap: 10px;
   width: auto;
 }
@@ -284,6 +284,8 @@ a {
     'pic pic pic pic'
     'name name name name'
     'time time diff diff';
+  grid-template-rows: 100px 50px 50px;
+  grid-template-columns: 100px 100px 100px;
   background-color: #000000;
   grid-gap: 2px;
   cursor: pointer;
