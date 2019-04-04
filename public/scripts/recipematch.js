@@ -66,6 +66,27 @@ function saveRecipe(){
 function uploadImg(element){
   console.log("clicketh");
 }
+var recipeImgName="https://previews.123rf.com/images/seamartini/seamartini1607/seamartini160700121/59600549-vegetable-salad-ingredients-background-with-seamless-pattern-of-tomatoes-olives-and-onions-carrots-b.jpg";
+function uploadRecipeImage(input) {
+  if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        var srcName=e.target.result;
+        recipeImgName=srcName;
+        var recipeImg=document.getElementById("recipeImg");
+        var buttonContainer=document.getElementById("buttonContainer");
+        var addRecipeImg=document.getElementById("addRecipeImg");
+        addRecipeImg.style.height="320px";
+        recipeImg.src=srcName;
+        recipeImg.style.height="350px";
+        recipeImg.style.width="385px";
+        recipeImg.style.display="block";
+        buttonContainer.style.display="none";
+        //$('#recipeImg').attr('src', srcName);
+      };
+      reader.readAsDataURL(input.files[0]);
+  }
+}
 
 function closeForm() {
   $('.popup-bg').remove();
@@ -173,7 +194,7 @@ window.onload = () => {
 
 function submitAddRecipe(recipeObj) {
   let newRecipeData = {
-    picture: 'TODO',
+    picture: recipeImgName,
     title: recipeObj.name,
     description: recipeObj.desc,
     duration: recipeObj.time,

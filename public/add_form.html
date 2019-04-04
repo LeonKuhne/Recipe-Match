@@ -5,8 +5,10 @@
             Add Recipe
         </div>
         <div class="popupEl banner" id="addRecipeImg">
-            <div>Upload Image</div>
-            <i id="uploadIcon" onclick="uploadImg(this);" class="fas fa-upload fa-lg"></i>
+          <img id="recipeImg" src='https://image.freepik.com/free-vector/food-pattern-design_1221-27.jpg' hidden/>
+          <div id="buttonContainer">
+            <input type='file' onchange="uploadRecipeImage(this);" />
+          </div>
         </div>
         <div class="popupEl formInputs">
             <div class="inputContainer">
