@@ -4,12 +4,16 @@ function redirect(url, delay = 0) {
   }, delay)
 }
 
-function getDifficulty(val){
-  if(val > 66){
+function strip(str) {
+  return str.replace(/^\s+|\s+$/g, '');
+}
+
+function getDifficulty(val) {
+  if (val > 66) {
     return "Hard";
-  }else if(val < 66 && val > 33){
+  } else if (val < 66 && val > 33) {
     return "Medium";
-  }else{
+  } else {
     return "Easy";
   }
 }
@@ -20,14 +24,14 @@ function addInput(element, isInstruction) {
   var newInput = lastInput.cloneNode(true);
   var id = newInput.id.split("-");
   newInput.id = id[0] + "-" + (parseInt(id[1]) + 1);
-  if(isInstruction){
-      var lastInstructionNum = lastInput.firstElementChild.innerHTML.split(".")[0];
-      newInput.firstElementChild.innerHTML= parseInt(lastInstructionNum) + 1 + ".";
+  if (isInstruction) {
+    var lastInstructionNum = lastInput.firstElementChild.innerHTML.split(".")[0];
+    newInput.firstElementChild.innerHTML = parseInt(lastInstructionNum) + 1 + ".";
   }
   inputList.append(newInput);
 }
 
-function saveRecipe(){
+function saveRecipe() {
   var recipeName = document.getElementById("recipeName").value;
   var recipeDesc = document.getElementById("recipeDesc").value;
   var recipeTimeDay = document.getElementById("inputDay").value;
@@ -37,24 +41,24 @@ function saveRecipe(){
   var recipeCuisine = document.getElementById("recipeCuisine").value;
   var ingredientList = document.getElementById("ingredientList").children;
   var instructionList = document.getElementById("instructionList").children;
-  var ingredientsArray=[];
+  var ingredientsArray = [];
   var instructionsArray = [];
-  for(var i=0; i<ingredientList.length; i++){
+  for (var i = 0; i < ingredientList.length; i++) {
     var ingredient = ingredientList[i];
     ingredientsArray.push({
-      ingredientAmt:ingredient.children[0].value,
-      ingredientUnit:ingredient.children[1].value,
-      ingredientName:ingredient.children[2].value
+      ingredientAmt: ingredient.children[0].value,
+      ingredientUnit: ingredient.children[1].value,
+      ingredientName: ingredient.children[2].value
     });
   }
-  for(var j=0; j<instructionList.length; j++){
+  for (var j = 0; j < instructionList.length; j++) {
     var instruction = instructionList[j];
     instructionsArray.push(instruction.lastElementChild.value);
   }
   var recipeInfo = {
     name: recipeName,
     desc: recipeDesc,
-    time: recipeTimeDay+"D-"+recipeTimeHr+"H-"+recipeTimeM+"M",
+    time: recipeTimeDay + "D-" + recipeTimeHr + "H-" + recipeTimeM + "M",
     diff: getDifficulty(parseInt(recipeDiff)),
     cuisine: recipeCuisine,
     ingredients: ingredientsArray,
@@ -63,7 +67,7 @@ function saveRecipe(){
   submitAddRecipe(recipeInfo);
 }
 
-function uploadImg(element){
+function uploadImg(element) {
   console.log("clicketh");
 }
 
@@ -177,7 +181,12 @@ window.onload = () => {
           }
         })
 
-        searchText += ', ' + searchFieldText
+        if (strip(searchFieldText) !== '') {
+          if (searchText !== '') {
+            searchText += ', '
+          }
+          searchText += searchFieldText
+        }
       } else {
         searchText = searchFieldText
       }
@@ -191,7 +200,7 @@ window.onload = () => {
     // spacebar was pressed
     if (e.keyCode == 32) {
       let searchText = $(e.target).val()
-      if (searchText !== ' ') {
+      if (strip(searchText) !== '') {
         $('.ingredients-items').append('<div class="ingredients-item">' + searchText + '</div>')
       }
 
