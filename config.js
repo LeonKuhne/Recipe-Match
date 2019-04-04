@@ -5,22 +5,91 @@ var config = {
     port: process.env.PORT || 5353
   },
   results: {
-    recipe: [],
+    recipe: [{
+      id: 0,
+      picture: 'pasta.png',
+      title: 'Pasta Carbonara',
+      description: 'The no-food-in-the-house dinner of our dreams.',
+      duration: '0D-1H-20M',
+      difficulty: 'Medium',
+      cuisine: 'Italian',
+      ingredients: [
+        {
+          ingredientAmt: '1',
+          ingredientUnit: 'pt',
+          ingredientName: 'Spaghetti'
+        },
+        {
+          ingredientAmt: '2',
+          ingredientUnit: 'c',
+          ingredientName: 'Eggs'
+        },
+        {
+          ingredientAmt: '2',
+          ingredientUnit: 'oz',
+          ingredientName: 'Parmesan'
+        }
+      ],
+      instructions: [
+        'Boil water',
+        'Whisk eggs',
+        'Cook pasta for 10 minutes',
+        'Add parmesan and eggs',
+        'Cook for another 10 minutes',
+        'Serve'
+      ]
+    }],
     ingredients: [{
       id: 0,
       picture: 'fresh.png',
       title: 'Fresh Potato',
       description: 'Izza big potato with lotz of sauze.',
-      duration: '2 hours',
-      difficulty: 'hard'
+      duration: '0D-2H-0M',
+      difficulty: 'Hard',
+      cuisine: 'Dutch',
+      ingredients: [
+        {
+          ingredientAmt: '1',
+          ingredientUnit: 'tbsp',
+          ingredientName: 'Sauce'
+        },
+        {
+          ingredientAmt: '2',
+          ingredientUnit: 'c',
+          ingredientName: 'Potato'
+        }
+      ],
+      instructions: [
+        'Cut up potato',
+        'Apply sauce to potato'
+      ]
     },
     {
       id: 1,
       picture: 'baked.png',
       title: 'Baked Potato',
       description: 'Izza baked potato with lotz of sauze.',
-      duration: '30 min',
-      difficulty: 'easy'
+      duration: '0D-0H-30M',
+      difficulty: 'Easy',
+      cuisine: 'American',
+      ingredients: [
+        {
+          ingredientAmt: '2',
+          ingredientUnit: 'tbsp',
+          ingredientName: 'Sauce'
+        },
+        {
+          ingredientAmt: '2',
+          ingredientUnit: 'c',
+          ingredientName: 'Potato'
+        }
+      ],
+      instructions: [
+        'Cut up potato',
+        'Apply sauce to potato',
+        'Set oven to 350',
+        'Put potato in oven for 20 minutes'
+      ]
     }
     ],
     myRecipe: []

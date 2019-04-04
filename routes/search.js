@@ -7,7 +7,7 @@ router.get('/recipes', function (req, res, next) {
 });
 
 router.get('/ingredients', function (req, res, next) {
-  res.render('search', { title: 'Ingredients', placeholder: 'Search by ingredients...', pageStyle: 'ingredients-page', searchType: 'ingredients_search', searchResults: config.results.ingredients });
+  res.render('search', { title: 'Ingredients', placeholder: 'Search by ingredients...', pageStyle: 'ingredients-page', searchType: 'ingredients-search', searchResults: config.results.ingredients });
 });
 
 router.get('/my-recipes', function (req, res, next) {

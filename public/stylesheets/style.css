@@ -135,25 +135,42 @@ body {
   font-size: 20px;
   margin: auto;
   vertical-align: -webkit-baseline-middle;
+  vertical-align: -moz-middle-with-baseline;
   min-width: 0;
   width: 500px;
   max-height: 24px;
   border-color: black;
-  margin: auto;
 }
 
 .search-bar-area {
   flex: 1;
   display: flex;
+  flex-direction: column;
   max-height: 100%;
 }
 
-.selectize-dropdown {
-  width: auto !important;
+.ingredients-search-container {
+  margin: auto;
 }
 
-.selectize-dropdown [data-selectable], .selectize-dropdown .optgroup-header {
-  white-space: nowrap;
+.ingredients-items {
+  max-height: 28px;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  width: 500px;
+  font: inherit;
+  text-align: center;
+  padding: 5px;
+}
+
+.ingredients-item {
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+  flex: 1;
+  background-color: white;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
 }
 
 #buttonContainer{
@@ -224,7 +241,7 @@ body {
 }
 
 .nav-my-recipes {
-  background-image: url("https://cdn0.iconfinder.com/data/icons/essentials-line/100/Agenda-512.png");
+  background-image: url("https://cdn3.iconfinder.com/data/icons/kitchen-17/342/kitchen_91-512.png");
 }
 
 .tooltip .tooltiptext {
@@ -393,10 +410,6 @@ a {
 
 .addRecipeInput, #sliderContainer, #diffRange{
   width:inherit;
-}
-
-#diffRange{
-  width:
 }
 
 .instructionInput{

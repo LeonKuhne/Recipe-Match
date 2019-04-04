@@ -4,12 +4,16 @@ function redirect(url, delay = 0) {
   }, delay)
 }
 
-function getDifficulty(val){
-  if(val > 66){
+function strip(str) {
+  return str.replace(/^\s+|\s+$/g, '');
+}
+
+function getDifficulty(val) {
+  if (val > 66) {
     return "Hard";
-  }else if(val < 66 && val > 33){
+  } else if (val < 66 && val > 33) {
     return "Medium";
-  }else{
+  } else {
     return "Easy";
   }
 }
@@ -20,14 +24,14 @@ function addInput(element, isInstruction) {
   var newInput = lastInput.cloneNode(true);
   var id = newInput.id.split("-");
   newInput.id = id[0] + "-" + (parseInt(id[1]) + 1);
-  if(isInstruction){
-      var lastInstructionNum = lastInput.firstElementChild.innerHTML.split(".")[0];
-      newInput.firstElementChild.innerHTML= parseInt(lastInstructionNum) + 1 + ".";
+  if (isInstruction) {
+    var lastInstructionNum = lastInput.firstElementChild.innerHTML.split(".")[0];
+    newInput.firstElementChild.innerHTML = parseInt(lastInstructionNum) + 1 + ".";
   }
   inputList.append(newInput);
 }
 
-function saveRecipe(){
+function saveRecipe() {
   var recipeName = document.getElementById("recipeName").value;
   var recipeDesc = document.getElementById("recipeDesc").value;
   var recipeTimeDay = document.getElementById("inputDay").value;
@@ -37,24 +41,24 @@ function saveRecipe(){
   var recipeCuisine = document.getElementById("recipeCuisine").value;
   var ingredientList = document.getElementById("ingredientList").children;
   var instructionList = document.getElementById("instructionList").children;
-  var ingredientsArray=[];
+  var ingredientsArray = [];
   var instructionsArray = [];
-  for(var i=0; i<ingredientList.length; i++){
+  for (var i = 0; i < ingredientList.length; i++) {
     var ingredient = ingredientList[i];
     ingredientsArray.push({
-      ingredientAmt:ingredient.children[0].value,
-      ingredientUnit:ingredient.children[1].value,
-      ingredientName:ingredient.children[2].value
+      ingredientAmt: ingredient.children[0].value,
+      ingredientUnit: ingredient.children[1].value,
+      ingredientName: ingredient.children[2].value
     });
   }
-  for(var j=0; j<instructionList.length; j++){
+  for (var j = 0; j < instructionList.length; j++) {
     var instruction = instructionList[j];
     instructionsArray.push(instruction.lastElementChild.value);
   }
   var recipeInfo = {
     name: recipeName,
     desc: recipeDesc,
-    time: recipeTimeDay+"D-"+recipeTimeHr+"H-"+recipeTimeM+"M",
+    time: recipeTimeDay + "D-" + recipeTimeHr + "H-" + recipeTimeM + "M",
     diff: getDifficulty(parseInt(recipeDiff)),
     cuisine: recipeCuisine,
     ingredients: ingredientsArray,
@@ -63,7 +67,7 @@ function saveRecipe(){
   submitAddRecipe(recipeInfo);
 }
 
-function uploadImg(element){
+function uploadImg(element) {
   console.log("clicketh");
 }
 var recipeImgName="https://previews.123rf.com/images/seamartini/seamartini1607/seamartini160700121/59600549-vegetable-salad-ingredients-background-with-seamless-pattern-of-tomatoes-olives-and-onions-carrots-b.jpg";
@@ -135,7 +139,6 @@ function loadHome() {
 }
 
 window.onload = () => {
-  //$('.ingredients-search').selectize()
   $('.logo').click(() => {
     redirect('/')
   })
@@ -183,10 +186,46 @@ window.onload = () => {
   })
 
   $('.search-bar').keyup((e) => {
+    let searchText = ''
+    let searchFieldText = $(e.target).val()
+
     // listen for the enter key
     if (e.keyCode == 13) {
       location.reload()
-      $('.search-bar').val($(e.target).val())
+
+      if (document.location.pathname === '/search/ingredients') {
+        $('.ingredients-items').children('.ingredients-item').each((index, elem) => {
+          console.log(elem.textContent)
+          searchText += elem.innerText
+          if (index + 1 != $('.ingredients-items').children('.ingredients-item').length) {
+            searchText += ', '
+          }
+        })
+
+        if (strip(searchFieldText) !== '') {
+          if (searchText !== '') {
+            searchText += ', '
+          }
+          searchText += searchFieldText
+        }
+      } else {
+        searchText = searchFieldText
+      }
+
+      $('.search-bar').val(searchText)
+    }
+  })
+
+  // turn search bar into ingredients search bar
+  $('.ingredients-search').keyup((e) => {
+    // spacebar was pressed
+    if (e.keyCode == 32) {
+      let searchText = $(e.target).val()
+      if (strip(searchText) !== '') {
+        $('.ingredients-items').append('<div class="ingredients-item">' + searchText + '</div>')
+      }
+
+      $('.ingredients-search').val('')
     }
   })
 
