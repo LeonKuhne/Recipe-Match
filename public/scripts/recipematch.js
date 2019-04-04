@@ -14,7 +14,7 @@ function addInput(element, isInstruction) {
   inputList.append(newInput);
 }
 
-function uploadImg(element){
+function uploadImg(element) {
   console.log("clicketh");
 }
 
@@ -73,6 +73,17 @@ window.onload = () => {
   // only homepage
   if (document.location.pathname === '/') {
     loadHome();
+  } else {
+    $('.search-bar').focus()
+  }
+
+  if ($('.search-bar').val() !== '' || document.location.pathname === '/search/my-recipes') {
+    $('.search-bar-area').addClass('short')
+    setTimeout(() => {
+      $('.search-results').show()
+    }, 500)
+  } else {
+    $('.search-results').hide()
   }
 
   // recipe card click
@@ -81,8 +92,7 @@ window.onload = () => {
     let recipeId = $(this).closest('.recipe-card').attr('id')
 
     // get the recipe data from the server
-    let recipeData = $.get('/recipes/?recipeId=' + recipeId, () => {
-
+    $.get('/recipes/?recipeId=' + recipeId, (recipeData) => {
       $('.search-view').append(`<div class="popup-bg"><div class="recipe-card-back">${
         JSON.stringify(recipeData)
         }</div></div>`)
@@ -97,23 +107,32 @@ window.onload = () => {
   $('.addRecipeButton').click(() => {
     $.get('/add_form.html', (formData) => {
       $('.search-view').html(formData)
-      $('#submit-form').click(() => {
-        let newRecipeData = {
-          picture: 'TODO',
-          title: $('#recipeName').val(),
-          description: $('#recipeDesc').val(),
-          duration: 'TODO',
-          difficulty: 'TODO'
-          // TODO ...
-          // this needs to be done for all data from the form
-        }
-
-        $.post("/recipes/add", newRecipeData)
-        redirect('/search/my-recipes')
-      })
     })
 
     return false;
-  });
+  })
 
+  $('.search-bar').keyup((e) => {
+    // listen for the enter key
+    if (e.keyCode == 13) {
+      location.reload()
+      $('.search-bar').val($(e.target).val())
+    }
+  })
+
+}
+
+function submitAddRecipe() {
+  let newRecipeData = {
+    picture: 'TODO',
+    title: $('#recipeName').val(),
+    description: $('#recipeDesc').val(),
+    duration: 'TODO',
+    difficulty: 'TODO'
+    // TODO ...
+    // this needs to be done for all data from the form
+  }
+
+  $.post("/recipes/add", newRecipeData)
+  redirect('/search/my-recipes')
 }
