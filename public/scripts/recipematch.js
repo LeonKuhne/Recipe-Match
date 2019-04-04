@@ -25,8 +25,25 @@ function saveRecipe(){
   var recipeTimeM = document.getElementById("inputM").value;
   var recipeDiff = document.getElementById("diffRange").value;
   var recipeCuisine = document.getElementById("recipeCuisine").value;
-  var ingredientList = document.getElementById("ingredientList").value;
+  var ingredientList = document.getElementById("ingredientList").children;
+  var instructionList = document.getElementById("instructionList").children;
+  var ingredientsArray=[];
+  var instructionArray = [];
+  for(var i=0; i<ingredientList.length; i++){
+    var ingredient = ingredientList[i];
+    ingredientsArray.push({
+      ingredientAmt:ingredient.children[0].value,
+      ingredientUnit:ingredient.children[1].value,
+      ingredientName:ingredient.children[2].value
+    });
+  }
+  for(var j=0; j<instructionList.length; j++){
+    var instruction = instructionList[j];
+    instructionArray.push(instruction.lastElementChild.value);
+  }
+  var recipeInfo = {
 
+  };
 }
 
 function uploadImg(element){
