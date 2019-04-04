@@ -19,9 +19,6 @@ function findRecipe(recipeId) {
 
 /* Create new recipe. */
 router.get('/', function (req, res, next) {
-  // add the recipe to the config
-  console.log('id is: ' + req.query.recipeId)
-
   // search for the recipe -_-
   let recipe = findRecipe(req.query.recipeId)
 
@@ -30,9 +27,13 @@ router.get('/', function (req, res, next) {
 
 /* Create new recipe. */
 router.post('/add', function (req, res, next) {
+  let results = config.results
+
   // add the recipe to the config
-  console.log('the body is:' + req.body)
-  config.results.myRecipe.push(req.body)
+  let recipe = req.body
+  recipes = results.recipe.concat(results.ingredients, results.myRecipe)
+  recipe.id = recipes.length + 1
+  config.results.myRecipe.push(recipe)
 
   res.status(200).send()
 });

@@ -102,15 +102,25 @@ body {
   }
 }
 
+@keyframes contract-short {
+  from {
+    max-height: 100% !important;
+  }
+  to {
+    max-height: 150px !important;
+  }
+}
+
 .expand {
   animation-duration: .5s;
   animation-name: expand-full;
   min-width: 100%;
 }
 
-.tall {
-  margin-top: 50px !important;
-  margin-bottom: 50px !important;
+.short {
+  animation-duration: .5s;
+  animation-name: contract-short;
+  max-height: 150px !important;
 }
 
 .scrunch {
@@ -126,7 +136,15 @@ body {
   vertical-align: -webkit-baseline-middle;
   min-width: 0;
   width: 500px;
+  max-height: 24px;
   border-color: black;
+  margin: auto;
+}
+
+.search-bar-area {
+  flex: 1;
+  display: flex;
+  max-height: 100%;
 }
 
 .selectize-dropdown {
