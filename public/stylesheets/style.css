@@ -134,6 +134,7 @@ body {
   font-size: 20px;
   margin: auto;
   vertical-align: -webkit-baseline-middle;
+  vertical-align: -moz-middle-with-baseline;
   min-width: 0;
   width: 500px;
   max-height: 24px;
