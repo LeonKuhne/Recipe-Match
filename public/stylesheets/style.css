@@ -183,10 +183,10 @@ body {
 }
 
 .ingredients-page , #addRecipeImg{
-  background-image: url("https://previews.123rf.com/images/seamartini/seamartini1607/seamartini160700121/59600549-vegetable-salad-ingredients-background-with-seamless-pattern-of-tomatoes-olives-and-onions-carrots-b.jpg");
-  background-repeat: repeat;
-  background-size: 400px 400px;
-  background-position: center;
+  background-image: url("/images/Ingredients.jpg");
+  background-repeat: no-repeat;
+  background-size: 2252px 1260px;
+  background-position: left top;
 }
 
 #recipeImg{
@@ -204,10 +204,10 @@ body {
 }
 
 .recipes-page {
-  background-image: url("https://image.freepik.com/free-vector/food-pattern-design_1221-27.jpg");
-  background-repeat: repeat;
-  background-size: 400px 400px;
-  background-position: center;
+  background-image: url("/images/home-family-beef-wellington.jpg");
+  background-repeat: no-repeat;
+  background-size: 1875px 1250px;
+  background-position: right top;
 }
 
 .taskbar {
