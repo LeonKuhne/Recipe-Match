@@ -39,8 +39,8 @@
             <div class="inputContainer">
                 <div>Difficulty:</div>
                 <div id="diffContainer">
-                  <span class="difficultyLvl novice">Novice</span>
-                  <span class="difficultyLvl expert">Expert</span>
+                  <span class="difficultyLvl novice">Easy</span>
+                  <span class="difficultyLvl expert">Hard</span>
                 </div>
                 <div id="sliderContainer">
                     <input type="range" min="1" max="100" value="50" class="slider" id="diffRange">
@@ -59,22 +59,18 @@
                 <div class="inputEl" id="ingredientInputs">
                     <div id="ingredientList">
                         <div id="ingredient-1" class="addableInput">
-                            <span style="padding-right:5px;">
-                                <input style="width:35px;" type="number" value="1">
-                            </span>
-                            <span style="padding-right:5px;">
-                                <select>
-                                    <option value="tsp">tsp</option>
-                                    <option value="tbsp">tbsp</option>
-                                    <option value="fl-oz">fl-oz</option>
-                                    <option value="oz">oz</option>
-                                    <option value="c">c</option>
-                                    <option value="pt">pt</option>
-                                    <option value="qt">qt</option>
-                                    <option value="gal">gal</option>
-                                </select>
-                            </span>
-                            <input class="addRecipeInput" style="width:114px;" type="text" placeholder="ex: salt">
+                            <input style="width:35px;" class="ingredientAmt" type="number" value="1">
+                            <select class="ingredientUnit">
+                                <option value="tsp">tsp</option>
+                                <option value="tbsp">tbsp</option>
+                                <option value="fl-oz">fl-oz</option>
+                                <option value="oz">oz</option>
+                                <option value="c">c</option>
+                                <option value="pt">pt</option>
+                                <option value="qt">qt</option>
+                                <option value="gal">gal</option>
+                            </select>
+                            <input class="addRecipeInput" style="width:124px;" type="text" placeholder="ex: salt">
                         </div>
                     </div>
                     <button onclick="addInput(this.parentElement, false);" class="addInputButton">+</button>
@@ -99,8 +95,8 @@
         </div>
 
         <div class="popupEl addRecipeSubmit">
-            <button id='submit-form' style="background:green; border:solid green" onclick='submitAddRecipe()'>Save</button>
-            <button style="background:red; border:solid red">Cancel</button>
+            <button onclick="saveRecipe();" id='submit-form' style="background:green; border:solid green">Save</button>
+            <button onclick="closeForm();" style="background:red; border:solid red">Cancel</button>
         </div>
     </div>
 </div>

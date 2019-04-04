@@ -4,17 +4,66 @@ function redirect(url, delay = 0) {
   }, delay)
 }
 
+function getDifficulty(val){
+  if(val > 66){
+    return "Hard";
+  }else if(val < 66 && val > 33){
+    return "Medium";
+  }else{
+    return "Easy";
+  }
+}
+
 function addInput(element, isInstruction) {
   var inputList = element.firstElementChild;
   var lastInput = inputList.lastElementChild;
   var newInput = lastInput.cloneNode(true);
   var id = newInput.id.split("-");
   newInput.id = id[0] + "-" + (parseInt(id[1]) + 1);
-  newInput.firstElementChild
+  if(isInstruction){
+      var lastInstructionNum = lastInput.firstElementChild.innerHTML.split(".")[0];
+      newInput.firstElementChild.innerHTML= parseInt(lastInstructionNum) + 1 + ".";
+  }
   inputList.append(newInput);
 }
 
-function uploadImg(element) {
+function saveRecipe(){
+  var recipeName = document.getElementById("recipeName").value;
+  var recipeDesc = document.getElementById("recipeDesc").value;
+  var recipeTimeDay = document.getElementById("inputDay").value;
+  var recipeTimeHr = document.getElementById("inputHr").value;
+  var recipeTimeM = document.getElementById("inputM").value;
+  var recipeDiff = document.getElementById("diffRange").value;
+  var recipeCuisine = document.getElementById("recipeCuisine").value;
+  var ingredientList = document.getElementById("ingredientList").children;
+  var instructionList = document.getElementById("instructionList").children;
+  var ingredientsArray=[];
+  var instructionsArray = [];
+  for(var i=0; i<ingredientList.length; i++){
+    var ingredient = ingredientList[i];
+    ingredientsArray.push({
+      ingredientAmt:ingredient.children[0].value,
+      ingredientUnit:ingredient.children[1].value,
+      ingredientName:ingredient.children[2].value
+    });
+  }
+  for(var j=0; j<instructionList.length; j++){
+    var instruction = instructionList[j];
+    instructionsArray.push(instruction.lastElementChild.value);
+  }
+  var recipeInfo = {
+    name: recipeName,
+    desc: recipeDesc,
+    time: recipeTimeDay+"D-"+recipeTimeHr+"H-"+recipeTimeM+"M",
+    diff: getDifficulty(parseInt(recipeDiff)),
+    cuisine: recipeCuisine,
+    ingredients: ingredientsArray,
+    instructions: instructionsArray
+  };
+  submitAddRecipe(recipeInfo);
+}
+
+function uploadImg(element){
   console.log("clicketh");
 }
 
@@ -122,15 +171,16 @@ window.onload = () => {
 
 }
 
-function submitAddRecipe() {
+function submitAddRecipe(recipeObj) {
   let newRecipeData = {
     picture: 'TODO',
-    title: $('#recipeName').val(),
-    description: $('#recipeDesc').val(),
-    duration: 'TODO',
-    difficulty: 'TODO'
-    // TODO ...
-    // this needs to be done for all data from the form
+    title: recipeObj.name,
+    description: recipeObj.desc,
+    duration: recipeObj.time,
+    difficulty: recipeObj.diff,
+    cuisine: recipeObj.cuisine,
+    ingredients: recipeObj.ingredients,
+    instructions: recipeObj.instructions
   }
 
   $.post("/recipes/add", newRecipeData)

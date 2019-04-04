@@ -11,7 +11,7 @@ body {
   width: auto;
   height: 70px;
   border-style: solid;
-  background-image: radial-gradient(circle, white,#da2d2d);
+  background-color: rgba(255, 50, 50, 0.25);
 }
 
 .full {
@@ -173,47 +173,34 @@ body {
   flex: 1;
   max-width: 70px;
   border-style: none solid solid solid;
-  background-color: #da2d2d;
+  background-color: rgba(255, 50, 50, 0.25);
   float: right;
   display: flex;
   flex-direction: column;
   height: auto;
 }
 
-.nav-recipes {
+.taskbar-item {
   display: block;
   flex: 1;
-  background-image: url("https://cdn4.iconfinder.com/data/icons/food-outline-set-2/91/Food_142-512.png");
   max-width: 50px;
   max-height: 50px;
   background-size: 50px 50px;
   margin: 10px;
   cursor: pointer;
   position: relative;
+}
+
+.nav-recipes {
+  background-image: url("https://cdn4.iconfinder.com/data/icons/food-outline-set-2/91/Food_142-512.png");
 }
 
 .nav-ingredients {
-  display: block;
-  flex: 1;
   background-image: url("http://icons.iconarchive.com/icons/icons8/android/512/Food-Bunch-Ingredients-icon.png");
-  max-width: 50px;
-  max-height: 50px;
-  background-size: 50px 50px;
-  margin: 10px;
-  cursor: pointer;
-  position: relative;
 }
 
 .nav-my-recipes {
-  display: block;
-  flex: 1;
   background-image: url("https://cdn0.iconfinder.com/data/icons/essentials-line/100/Agenda-512.png");
-  max-width: 50px;
-  max-height: 50px;
-  background-size: 50px 50px;
-  margin: 10px;
-  cursor: pointer;
-  position: relative;
 }
 
 .tooltip .tooltiptext {
@@ -388,7 +375,7 @@ a {
 }
 
 .instructionInput{
-  width:220px;
+  width:205px;
 }
 
 .recipe-card-back, .add-recipe-form {
