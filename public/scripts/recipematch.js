@@ -190,11 +190,24 @@ window.onload = () => {
   })
 
   $('.search-bar').keyup((e) => {
-    let searchText = ''
     let searchFieldText = $(e.target).val()
+    
+    // on the home page
+    if (document.location.pathname === '/') {
+      let searchPath = ''
+      if($(e.target).hasClass('ingredients-search')) {
+      	searchPath = '/search/recipes'
+      } else if ($(e.target).hasClass('recipe-search')) { 
+      	searchPath = '/search/ingredients'
+      }
+      redirect(searchPath + '/?query=' + encodeURI(searchFieldText))
+    }
 
     // listen for the enter key
-    if (e.keyCode == 13) {
+    else if (e.keyCode == 13) {
+      let searchText = ''
+
+         // on the ingredients page
       if (document.location.pathname === '/search/ingredients') {
         $('.ingredients-items').children('.ingredients-item').each((index, elem) => {
           searchText += elem.innerText
