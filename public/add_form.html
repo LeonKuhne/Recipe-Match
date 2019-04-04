@@ -60,10 +60,10 @@
                     <div id="ingredientList">
                         <div id="ingredient-1" class="addableInput">
                             <span style="padding-right:5px;">
-                                <input style="width:35px;" type="number" value="1">
+                                <input style="width:35px;" class="ingredientAmt" type="number" value="1">
                             </span>
                             <span style="padding-right:5px;">
-                                <select>
+                                <select class="ingredientUnit">
                                     <option value="tsp">tsp</option>
                                     <option value="tbsp">tbsp</option>
                                     <option value="fl-oz">fl-oz</option>
@@ -99,8 +99,8 @@
         </div>
 
         <div class="popupEl addRecipeSubmit">
-            <button id='submit-form' style="background:green; border:solid green">Save</button>
-            <button style="background:red; border:solid red">Cancel</button>
+            <button onclick="saveRecipe();" id='submit-form' style="background:green; border:solid green">Save</button>
+            <button onclick="closeForm();" style="background:red; border:solid red">Cancel</button>
         </div>
     </div>
 </div>

@@ -10,8 +10,23 @@ function addInput(element, isInstruction) {
   var newInput = lastInput.cloneNode(true);
   var id = newInput.id.split("-");
   newInput.id = id[0] + "-" + (parseInt(id[1]) + 1);
-  newInput.firstElementChild
+  if(isInstruction){
+      var lastInstructionNum = lastInput.firstElementChild.innerHTML.split(".")[0];
+      newInput.firstElementChild.innerHTML= parseInt(lastInstructionNum) + 1 + ".";
+  }
   inputList.append(newInput);
+}
+
+function saveRecipe(){
+  var recipeName = document.getElementById("recipeName").value;
+  var recipeDesc = document.getElementById("recipeDesc").value;
+  var recipeTimeDay = document.getElementById("inputDay").value;
+  var recipeTimeHr = document.getElementById("inputHr").value;
+  var recipeTimeM = document.getElementById("inputM").value;
+  var recipeDiff = document.getElementById("diffRange").value;
+  var recipeCuisine = document.getElementById("recipeCuisine").value;
+  var ingredientList = document.getElementById("ingredientList").value;
+  
 }
 
 function uploadImg(element){
