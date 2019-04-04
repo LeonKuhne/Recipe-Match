@@ -38,7 +38,41 @@ var config = {
         'Cook for another 10 minutes',
         'Serve'
       ]
-    }],
+    },
+    {
+      id: 1,
+      picture: 'lemon.png',
+      title: 'Lemon Bars',
+      description: 'Lemon bars on a shortbread base.',
+      duration: '0D-0H-50M',
+      difficulty: 'Easy',
+      cuisine: 'English',
+      ingredients: [
+        {
+          ingredientAmt: '1',
+          ingredientUnit: 'c',
+          ingredientName: 'Flour'
+        },
+        {
+          ingredientAmt: '1',
+          ingredientUnit: 'c',
+          ingredientName: 'White Sugar'
+        },
+        {
+          ingredientAmt: '1',
+          ingredientUnit: 'tbsp',
+          ingredientName: 'Lemon Zest'
+        }
+      ],
+      instructions: [
+        'Preheat oven to 350 degrees F',
+        'Mix flour and sugar',
+        'Bake for 20 minutes',
+        'Add lemon zest',
+        'Bake for another 25 minutes'
+      ]
+    }
+    ],
     ingredients: [{
       id: 0,
       picture: 'fresh.png',
@@ -92,7 +126,39 @@ var config = {
       ]
     }
     ],
-    myRecipe: []
+    myRecipe: [{
+      id: 0,
+      picture: 'chicken.png',
+      title: 'Chicken Parmesan',
+      description: 'Chicken with a crispy crust and less sauce than traditional.',
+      duration: '0D-0H-45M',
+      difficulty: 'Medium',
+      cuisine: 'Italian',
+      ingredients: [
+        {
+          ingredientAmt: '2',
+          ingredientUnit: 'tbsp',
+          ingredientName: 'Sauce'
+        },
+        {
+          ingredientAmt: '1',
+          ingredientUnit: 'c',
+          ingredientName: 'Mozzarella'
+        },
+        {
+          ingredientAmt: '4',
+          ingredientUnit: 'c',
+          ingredientName: 'Chicken breast'
+        }
+      ],
+      instructions: [
+        'Preheat oven to 450 degrees F',
+        'Coat chicken with sauce',
+        'Bake for 30 minutes',
+        'Sprinkle mozzarella on top of chicken'
+      ]
+    }
+    ]
   }
 }
 
