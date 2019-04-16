@@ -196,9 +196,9 @@ window.onload = () => {
     if (document.location.pathname === '/') {
       let searchPath = ''
       if($(e.target).hasClass('ingredients-search')) {
-      	searchPath = '/search/recipes'
-      } else if ($(e.target).hasClass('recipe-search')) { 
       	searchPath = '/search/ingredients'
+      } else if ($(e.target).hasClass('recipe-search')) { 
+      	searchPath = '/search/recipes'
       }
       redirect(searchPath + '/?query=' + encodeURI(searchFieldText))
     }
