@@ -31,9 +31,10 @@ router.post('/add', function (req, res, next) {
 
   // add the recipe to the config
   let recipe = req.body
-  recipes = results.recipe.concat(results.ingredients, results.myRecipe)
+  recipes = results.recipes.concat(results.recipes, results.myRecipe)
   recipe.id = recipes.length + 1
   config.results.myRecipe.push(recipe)
+  config.results.recipes.push(recipe)
 
   res.status(200).send()
 });

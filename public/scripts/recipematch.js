@@ -31,6 +31,22 @@ function addInput(element, isInstruction) {
   inputList.append(newInput);
 }
 
+function submitAddRecipe(recipeObj) {
+  let newRecipeData = {
+    picture: recipeImgName,
+    title: recipeObj.name,
+    description: recipeObj.desc,
+    duration: recipeObj.time,
+    difficulty: recipeObj.diff,
+    cuisine: recipeObj.cuisine,
+    ingredients: recipeObj.ingredients,
+    instructions: recipeObj.instructions
+  }
+
+  $.post("/recipes/add", newRecipeData)
+  redirect('/search/my-recipes', 500)
+}
+
 function saveRecipe() {
   var recipeName = document.getElementById("recipeName").value;
   var recipeDesc = document.getElementById("recipeDesc").value;
@@ -51,10 +67,12 @@ function saveRecipe() {
       ingredientName: ingredient.children[2].value
     });
   }
+
   for (var j = 0; j < instructionList.length; j++) {
     var instruction = instructionList[j];
     instructionsArray.push(instruction.lastElementChild.value);
   }
+
   var recipeInfo = {
     name: recipeName,
     desc: recipeDesc,
@@ -64,6 +82,7 @@ function saveRecipe() {
     ingredients: ingredientsArray,
     instructions: instructionsArray
   };
+
   submitAddRecipe(recipeInfo);
 }
 
@@ -244,18 +263,3 @@ window.onload = () => {
 
 }
 
-function submitAddRecipe(recipeObj) {
-  let newRecipeData = {
-    picture: recipeImgName,
-    title: recipeObj.name,
-    description: recipeObj.desc,
-    duration: recipeObj.time,
-    difficulty: recipeObj.diff,
-    cuisine: recipeObj.cuisine,
-    ingredients: recipeObj.ingredients,
-    instructions: recipeObj.instructions
-  }
-
-  $.post("/recipes/add", newRecipeData)
-  redirect('/search/my-recipes')
-}
