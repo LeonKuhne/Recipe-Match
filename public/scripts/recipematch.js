@@ -92,6 +92,25 @@ function uploadRecipeImage(input) {
   }
 }
 
+function fillRecipeDetails(data){
+  var recipeName = document.getElementById("recipe-detail-name");
+  var recipeDesc = document.getElementById("recipe-detail-desc");
+  var recipeTime = document.getElementById("recipe-detail-time");
+  var recipeImg = document.getElementById("recipe-detail-img");
+  var recipeDiff = document.getElementById("recipe-detail-diff");
+  var recipeCuisine = document.getElementById("recipe-detail-cuisine");
+  var recipeIngredients = document.getElementById("recipe-detail-ingredients");
+  var recipeInstructions = document.getElementById("recipe-detail-instructions");
+  recipeName.innerHTML=data.name;
+  recipeDesc.innerHTML=data.desc;
+  recipeTime.innerHTML=data.time;
+  recipeImg.innerHTML=data.img;
+  recipeDiff.innerHTML=data.diff;
+  recipeCuisine.innerHTML=data.cuisine;
+  recipeIngredients.innerHTML = data.ingredient;
+  recipeInstructions.innerHTML = data.instruction;
+}
+
 function closeForm() {
   $('.popup-bg').remove();
 }
@@ -167,37 +186,40 @@ window.onload = () => {
   $('.recipe-card').click(function (event) {
     // create a recipe card detailed view
     let recipeId = $(this).closest('.recipe-card').attr('id')
-
+    var recipeInfo;
     // get the recipe data from the server
     $.get('/recipes/?recipeId=' + recipeId, (recipeData) => {
-      $('.search-view').append(`<div class="popup-bg"><div class="recipe-card-back">${
-        JSON.stringify(recipeData)
-        }</div></div>`)
+      $('.search-view').load("/recipe_details.html");
+      recipeInfo=recipeData;
+      // $('.search-view').append(`<div class="popup-bg"><div class="recipe-card-back">`+
+      //   displayRecipeData(recipeData)+
+      //   `</div></div>`)
       $('.popup-bg').click(() => {
         $('.popup-bg').remove()
       })
     })
-
+    fillRecipeDetails(recipeInfo);
     return false;
   })
 
   $('.addRecipeButton').click(() => {
-    $.get('/add_form.html', (formData) => {
-      $('.search-view').html(formData)
-    })
+    $('.search-view').html("/add_form.html");
+    // $.get('/add_form.html', (formData) => {
+    //   $('.search-view').html(formData)
+    // })
 
     return false;
   })
 
   $('.search-bar').keyup((e) => {
     let searchFieldText = $(e.target).val()
-    
+
     // on the home page
     if (document.location.pathname === '/') {
       let searchPath = ''
       if($(e.target).hasClass('ingredients-search')) {
       	searchPath = '/search/recipes'
-      } else if ($(e.target).hasClass('recipe-search')) { 
+      } else if ($(e.target).hasClass('recipe-search')) {
       	searchPath = '/search/ingredients'
       }
       redirect(searchPath + '/?query=' + encodeURI(searchFieldText))
