@@ -5,7 +5,7 @@ var config = {
     port: process.env.PORT || 5353
   },
   results: {
-    recipe: [{
+    recipes: [{
       id: 0,
       picture: 'https://s23209.pcdn.co/wp-content/uploads/2014/03/IMG_2622edit.jpg',
       title: 'Pasta Carbonara',
@@ -71,9 +71,7 @@ var config = {
         'Add lemon zest',
         'Bake for another 25 minutes'
       ]
-    }
-    ],
-    ingredients: [{
+    }, {
       id: 0,
       picture: 'https://i.kym-cdn.com/entries/icons/original/000/011/269/potato.jpg',
       title: 'Fresh Potato',

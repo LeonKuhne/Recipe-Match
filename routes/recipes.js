@@ -31,11 +31,41 @@ router.post('/add', function (req, res, next) {
 
   // add the recipe to the config
   let recipe = req.body
-  recipes = results.recipe.concat(results.ingredients, results.myRecipe)
+  recipes = results.recipes.concat(results.recipes, results.myRecipe)
   recipe.id = recipes.length + 1
   config.results.myRecipe.push(recipe)
+  config.results.recipes.push(recipe)
 
   res.status(200).send()
 });
+
+/* Delete existing recipe. */
+router.post('/remove', function (req, res, next) {
+  let results = config.results
+
+  // remove the recipe from the config
+  let recipeIdToDelete = req.body
+  
+  // delete recipe in general recipes
+  for(let i=0; i<results.recipes.length; i++) {
+    let recipe = results.recipes[i]
+    if(recipe.id == recipeIdToDelete) {
+      results.recipes.splice(i, 1) // remove
+      i=results.recipes.length // break
+    }
+  }
+
+  // delete recipe in my recipes
+  for(let i=0; i<results.myRecipe.length; i++) {
+    let recipe = results.myRecipe[i]
+    if(recipe.id == recipeIdToDelete) {
+      results.myRecipe.splice(i, 1) // remove
+      i=results.recipes.length // break
+    }
+  }
+  
+  res.status(200).send()
+});
+
 
 module.exports = router;
