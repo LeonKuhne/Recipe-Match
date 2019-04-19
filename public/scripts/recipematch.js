@@ -188,7 +188,7 @@ window.onload = () => {
     let recipeId = $(this).closest('.recipe-card').attr('id')
 
     // get the recipe data from the server
-    $.get('/recipes/?recipeId=' + recipeId, (recipeData) => {
+    $.get('/recipes?recipeId=' + recipeId, (recipeData) => {
       $('.search-view').append(`<div class="popup-bg"><div class="recipe-card-back">${
         JSON.stringify(recipeData)
         }</div></div>`)
@@ -219,7 +219,7 @@ window.onload = () => {
       } else if ($(e.target).hasClass('recipe-search')) { 
       	searchPath = '/search/recipes'
       }
-      redirect(searchPath + '/?query=' + encodeURI(searchFieldText))
+      redirect(searchPath + '?query=' + encodeURI(searchFieldText))
     }
 
     // listen for the enter key
