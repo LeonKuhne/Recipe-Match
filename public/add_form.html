@@ -27,13 +27,13 @@
             <div class="inputContainer">
                 <div>Time:</div>
                 <span class="numInputContainer">
-                    <input class="numInput" id="inputDay" type="number" value="0"> D
+                    <input class="numInput" id="inputDay" type="number" value="0" min="0"> D
                 </span>
                 <span class="numInputContainer">
-                    <input class="numInput" id="inputHr" type="number" value="0"> H
+                    <input class="numInput" id="inputHr" type="number" value="0" min="0" max="23"> H
                 </span>
                 <span class="numInputContainer">
-                    <input class="numInput" id="inputM" type="number" value="0"> M
+                    <input class="numInput" id="inputM" type="number" value="0" min="0" max="60"> M
                 </span>
             </div>
         </div>
@@ -61,7 +61,7 @@
                 <div class="inputEl" id="ingredientInputs">
                     <div id="ingredientList">
                         <div id="ingredient-1" class="addableInput">
-                            <input style="width:35px;" class="ingredientAmt" type="number" value="1">
+                            <input style="width:35px;" class="ingredientAmt" type="number" value="1" min="1">
                             <select class="ingredientUnit">
                                 <option value="tsp">tsp</option>
                                 <option value="tbsp">tbsp</option>
@@ -97,7 +97,7 @@
         </div>
 
         <div class="popupEl addRecipeSubmit">
-            <button onclick="saveRecipe();" id='submit-form' style="background:green; border:solid green">Save</button>
+            <button onclick="confirmSave();" id='submit-form' style="background:green; border:solid green">Save</button>
             <button onclick="closeForm();" style="background:red; border:solid red">Cancel</button>
         </div>
     </div>
