@@ -5,7 +5,7 @@ var config = require('../config')
 /* Find a recipe with format 'recipe-n'. */
 function findRecipe(recipeId) {
   results = config.results
-  recipes = results.recipe.concat(results.ingredients, results.myRecipe)
+  recipes = results.recipes.concat(results.ingredients, results.myRecipe)
 
   for (let recipe of recipes) {
     if ('recipe-' + recipe.id === recipeId) {

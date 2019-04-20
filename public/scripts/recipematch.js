@@ -207,13 +207,10 @@ window.onload = () => {
     let recipeId = $(this).closest('.recipe-card').attr('id');
     $('.search-view').load("/recipe_details.html");
     // get the recipe data from the server
-    $.get('http:104.207.135.80:1234/recipes/?recipeId=' + recipeId, (recipeData) => {
-      //$('.search-view').load("/recipe_details.html");
-      //fillRecipeDetails(recipeData);
-      console.log(recipeData);
-      // $('.search-view').append(`<div class="popup-bg"><div class="recipe-card-back">`+
-      //   displayRecipeData(recipeData)+
-      //   `</div></div>`)
+    $.get('/recipes?recipeId=' + recipeId, (recipeData) => {
+      $('.search-view').append(`<div class="popup-bg"><div class="recipe-card-back">${
+        JSON.stringify(recipeData)
+        }</div></div>`)
       $('.popup-bg').click(() => {
         $('.popup-bg').remove()
       })
@@ -243,7 +240,7 @@ window.onload = () => {
       } else if ($(e.target).hasClass('recipe-search')) {
       	searchPath = '/search/recipes'
       }
-      redirect(searchPath + '/?query=' + encodeURI(searchFieldText))
+      redirect(searchPath + '?query=' + encodeURI(searchFieldText))
     }
 
     // listen for the enter key
