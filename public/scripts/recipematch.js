@@ -204,12 +204,13 @@ window.onload = () => {
   // recipe card click
   $('.recipe-card').click(function (event) {
     // create a recipe card detailed view
-    let recipeId = $(this).closest('.recipe-card').attr('id')
-    var recipeInfo;
+    let recipeId = $(this).closest('.recipe-card').attr('id');
+    $('.search-view').load("/recipe_details.html");
     // get the recipe data from the server
-    $.get('/recipes/?recipeId=' + recipeId, (recipeData) => {
-      $('.search-view').load("/recipe_details.html");
-      recipeInfo=recipeData;
+    $.get('http:104.207.135.80:1234/recipes/?recipeId=' + recipeId, (recipeData) => {
+      //$('.search-view').load("/recipe_details.html");
+      //fillRecipeDetails(recipeData);
+      console.log(recipeData);
       // $('.search-view').append(`<div class="popup-bg"><div class="recipe-card-back">`+
       //   displayRecipeData(recipeData)+
       //   `</div></div>`)
@@ -217,12 +218,11 @@ window.onload = () => {
         $('.popup-bg').remove()
       })
     })
-    fillRecipeDetails(recipeInfo);
     return false;
   })
 
   $('.addRecipeButton').click(() => {
-    $('.search-view').html("/add_form.html");
+    $('.search-view').load("/add_form.html");
     // $.get('/add_form.html', (formData) => {
     //   $('.search-view').html(formData)
     // })
