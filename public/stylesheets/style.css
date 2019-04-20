@@ -210,6 +210,13 @@ body {
   background-position: right top;
 }
 
+.my-recipes-page {
+  background-image: url("/images/myRecipes.jpg");
+  background-repeat: no-repeat;
+  background-size: 1875px 1250px;
+  background-position: right top;
+}
+
 .taskbar {
   flex: 1;
   max-width: 70px;
@@ -224,24 +231,28 @@ body {
 .taskbar-item {
   display: block;
   flex: 1;
-  max-width: 50px;
-  max-height: 50px;
-  background-size: 50px 50px;
-  margin: 10px;
+  max-width: 70px;
+  max-height: 70px;
+  background-size: 70px 70px;
+  border-bottom-style: solid;
   cursor: pointer;
   position: relative;
 }
 
 .nav-recipes{
-  background-image: url("https://cdn4.iconfinder.com/data/icons/food-outline-set-2/91/Food_142-512.png");
+  background-image: url("https://cdn.iconscout.com/icon/premium/png-256-thumb/recipe-book-1471041-1245141.png");
 }
 
 .nav-ingredients {
-  background-image: url("http://icons.iconarchive.com/icons/icons8/android/512/Food-Bunch-Ingredients-icon.png");
+  background-image: url("https://static.thenounproject.com/png/151336-200.png");
 }
 
 .nav-my-recipes {
   background-image: url("https://cdn3.iconfinder.com/data/icons/kitchen-17/342/kitchen_91-512.png");
+}
+
+.active {
+  background-color: lightblue;
 }
 
 .tooltip .tooltiptext {
@@ -264,6 +275,11 @@ body {
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
+}
+
+.ingredients-item:hover {
+  color:#c33!important;
+  text-decoration: line-through!important;
 }
 
 a {
@@ -419,7 +435,7 @@ a {
 }
 
 .recipe-card-back, .add-recipe-form {
-  background-color: yellow;
+  background-color: lightblue;
   max-width: 400px;
   min-height: 400px;
   max-height: 500px;
