@@ -47,6 +47,12 @@ function submitAddRecipe(recipeObj) {
   redirect('/search/my-recipes', 500)
 }
 
+function confirmSave() {
+  if (confirm("Save this recipe?")) {
+    saveRecipe();
+  }
+}
+
 function saveRecipe() {
   var recipeName = document.getElementById("recipeName").value;
   var recipeDesc = document.getElementById("recipeDesc").value;
@@ -118,6 +124,7 @@ function uploadRecipeImage(input) {
 
 function closeForm() {
   $('.popup-bg').remove();
+  redirect('/search/my-recipes', 500)
 }
 
 function loadHome() {
