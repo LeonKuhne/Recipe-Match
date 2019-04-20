@@ -89,6 +89,11 @@ function saveRecipe() {
 function uploadImg(element) {
   console.log("clicketh");
 }
+
+function removeIngredient(div) {
+  (div.parentNode).removeChild(div);
+}
+
 var recipeImgName="https://previews.123rf.com/images/seamartini/seamartini1607/seamartini160700121/59600549-vegetable-salad-ingredients-background-with-seamless-pattern-of-tomatoes-olives-and-onions-carrots-b.jpg";
 function uploadRecipeImage(input) {
   if (input.files && input.files[0]) {
@@ -167,6 +172,14 @@ window.onload = () => {
     loadHome();
   } else {
     $('.search-bar').focus()
+  }
+
+  if (document.location.pathname === '/search/ingredients') {
+    $('.nav-ingredients').addClass('active')
+  } else if (document.location.pathname === '/search/recipes') {
+    $('.nav-recipes').addClass('active')
+  } else if (document.location.pathname === '/search/my-recipes') {
+    $('.nav-my-recipes').addClass('active')
   }
 
   // get the query params from the url
@@ -254,7 +267,7 @@ window.onload = () => {
     if (e.keyCode == 32) {
       let searchText = $(e.target).val()
       if (strip(searchText) !== '') {
-        $('.ingredients-items').append('<div class="ingredients-item">' + searchText + '</div>')
+        $('.ingredients-items').append('<div class="ingredients-item" onclick="removeIngredient(this);">' + searchText + '</div>')
       }
 
       $('.ingredients-search').val('')
