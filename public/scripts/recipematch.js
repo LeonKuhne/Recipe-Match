@@ -53,6 +53,12 @@ function confirmSave() {
   }
 }
 
+function confirmDelete() {
+  if (confirm("Delete this recipe?")) {
+    deleteRecipe();
+  }
+}
+
 function deleteRecipe() {
   var recipeId = document.getElementsByClassName("recipe-card-back")[0].id;
   $.post('/recipes/remove?recipeId=' + recipeId);
