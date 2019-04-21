@@ -239,6 +239,12 @@ body {
   position: relative;
 }
 
+.taskbar-item:hover {
+  background-color: rgba(186, 240, 255, 0.5);
+  -webkit-transition: background-color .2s ease-in; /* Safari */
+  transition: background-color .2s ease-in;
+}
+
 .nav-recipes{
   background-image: url("https://cdn.iconscout.com/icon/premium/png-256-thumb/recipe-book-1471041-1245141.png");
 }
@@ -253,6 +259,12 @@ body {
 
 .active {
   background-color: lightblue;
+}
+
+.active:hover {
+  background-color: rgb(186, 240, 255);
+  -webkit-transition: background-color .2s ease-in; /* Safari */
+  transition: background-color .2s ease-in;
 }
 
 .tooltip .tooltiptext {
