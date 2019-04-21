@@ -123,27 +123,39 @@ function uploadRecipeImage(input) {
 }
 
 function fillRecipeDetails(data){
+  console.log(data, "dod"+data.duration);
   var recipeName = document.getElementById("recipe-detail-name");
   var recipeDesc = document.getElementById("recipe-detail-desc");
-  var recipeTime = document.getElementById("recipe-detail-time");
+  var recipeDuration = document.getElementById("recipe-detail-duration");
   var recipeImg = document.getElementById("recipe-detail-img");
   var recipeDiff = document.getElementById("recipe-detail-diff");
   var recipeCuisine = document.getElementById("recipe-detail-cuisine");
   var recipeIngredients = document.getElementById("recipe-detail-ingredients");
   var recipeInstructions = document.getElementById("recipe-detail-instructions");
-  recipeName.innerHTML=data.name;
-  recipeDesc.innerHTML=data.desc;
-  recipeTime.innerHTML=data.time;
-  recipeImg.innerHTML=data.img;
-  recipeDiff.innerHTML=data.diff;
+  recipeName.innerHTML=data.title;
+  recipeDesc.innerHTML=data.description;
+  recipeDuration.innerHTML=data.duration;
+  recipeImg.src=data.picture;
+  recipeDiff.innerHTML=data.difficulty;
   recipeCuisine.innerHTML=data.cuisine;
-  recipeIngredients.innerHTML = data.ingredient;
-  recipeInstructions.innerHTML = data.instruction;
+  var ingredients = data.ingredients;
+  for(var i=0; i<ingredients.length; i++){
+    var ingredientItem = document.createElement("LI");
+    var ingredientObj = ingredients[i];
+    var ingredientStr = ingredientObj.ingredientAmt + " " + ingredientObj.ingredientUnit+ " of "+ ingredientObj.ingredientName;
+    ingredientItem.innerHTML= ingredientStr;
+    recipeIngredients.appendChild(ingredientItem);
+  }
+  var instructions = data.instructions;
+  for(var j=0; j<instructions.length; j++){
+    var instructionItem = document.createElement("LI");
+    instructionItem.innerHTML=instructions[j];
+    recipeInstructions.appendChild(instructionItem);
+  }
 }
 
 function closeForm() {
   $('.popup-bg').remove();
-  redirect('/search/my-recipes', 500)
 }
 
 function loadHome() {
@@ -225,12 +237,13 @@ window.onload = () => {
   $('.recipe-card').click(function (event) {
     // create a recipe card detailed view
     let recipeId = $(this).closest('.recipe-card').attr('id');
-    $('.search-view').load("/recipe_details.html");
+    $('#popupView').load("/recipe_details.html");
     // get the recipe data from the server
     $.get('/recipes?recipeId=' + recipeId, (recipeData) => {
-      $('.search-view').append(`<div class="popup-bg"><div class="recipe-card-back">${
-        JSON.stringify(recipeData)
-        }</div></div>`)
+      fillRecipeDetails(recipeData);
+      // $('.search-view').append(`<div class="popup-bg"><div class="recipe-card-back">${
+      //   JSON.stringify(recipeData)
+      //   }</div></div>`)
       $('.popup-bg').click(() => {
         $('.popup-bg').remove()
       })
@@ -239,11 +252,13 @@ window.onload = () => {
   })
 
   $('.addRecipeButton').click(() => {
-    $('.search-view').load("/add_form.html");
+    $('#popupView').load("/add_form.html");
     // $.get('/add_form.html', (formData) => {
     //   $('.search-view').html(formData)
     // })
-
+    $('.popup-bg').click(() => {
+      $('.popup-bg').remove()
+    })
     return false;
   })
 

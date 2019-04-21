@@ -2,44 +2,40 @@
   <div class="recipe-card-back">
     <div class="popupEl banner" id="addRecipeBanner">
         <button onclick="closeForm();" class="formCloseButton">X</button>
-        <div class="recipeCardBack" id="recipe-detail-name"> pad thai </div>
+        <div class="recipeCardBack-container" id="recipe-detail-name"></div>
     </div>
-    <div class="recipeCardBack" id="addRecipeImg">
-      <img id="recipe-detail-img" src='https://image.freepik.com/free-vector/food-pattern-design_1221-27.jpg' hidden/>
+    <div class="recipeCardBack-container" id="recipeDetailImg">
+      <img id="recipe-detail-img" src='https://image.freepik.com/free-vector/food-pattern-design_1221-27.jpg'/>
     </div>
-    <div class="recipeCardBack" id="recipe-detail-desc">
-      <div>Description:</div>
-      pad thai is the street food of thailand and boiii is it wonderful.
+    <div class="recipeCardBack-container">
+      <div class="detail-label">Description:</div>
+      <div class="detail-info" id="recipe-detail-desc"></div>
     </div>
-    <div class="recipeCardBack" id="recipe-detail-diff">
-      <div>Difficulty:</div>
-      hard
+    <div class="recipeCardBack-container">
+      <div class="detail-label">Difficulty:</div>
+      <div class="detail-info" id="recipe-detail-diff"></div>
     </div>
-    <div class="recipeCardBack" id="recipe-detail-duration">
-      <div>Duration:</div>
-      1d4h
+    <div class="recipeCardBack-container">
+      <div class="detail-label">Duration:</div>
+      <div class="detail-info" id="recipe-detail-duration"></div>
     </div>
-    <div class="recipeCardBack" id="recipe-detail-cuisine">
-      <div>Cuisine:</div>
-      Asian
+    <div class="recipeCardBack-container">
+      <div class="detail-label">Cuisine:</div>
+      <div class="detail-info" id="recipe-detail-cuisine"></div>
     </div>
-    <div class="recipeCardBack" id="recipe-detail-ingredients">
-      <div>Ingredients:</div>
-      <ul id="ingedient-list">
-        <li>2 cups of honey</li>
-        <li>5 cups of milk</li>
-        <li>5 tbsp of jelly</li>
-        <li>6 tbsp of peanut butter</li>
-        <li>1 tsp of butter</li>
-      </ul>
+    <div class="recipeCardBack-container">
+      <div class="detail-label">Ingredients:</div>
+      <div class="detail-info detail-list">
+        <ul id="recipe-detail-ingredients">
+        </ul>
+      </div>
     </div>
-    <div class="recipeCardBack" id="recipe-detail-instructions">
-      <div>Instructions:</div>
-      <ol type="1" id="instruction-list">
-        <li>Add butter to spread</li>
-        <li>Churn Jelly with peanut butter</li>
-        <li>Blend honey with milk</li>
-      </ol>
+    <div class="recipeCardBack-container">
+      <div class="detail-label">Instructions:</div>
+      <div class="detail-info detail-list">
+        <ol type="1" id="recipe-detail-instructions">
+        </ol>
+      </div>
     </div>
   </div>
 </div>

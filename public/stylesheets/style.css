@@ -445,6 +445,28 @@ a {
   overflow-y: scroll;
 }
 
+.recipeCardBack-container{
+  width:inherit;
+
+}
+
+.detail-label{
+  padding-left: 10px;
+  padding-top: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.detail-info{
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+
+#recipe-detail-img{
+  width:383px;
+  height:300px;
+}
 .popup-bg {
   width: 100%;
   height: 100%;
