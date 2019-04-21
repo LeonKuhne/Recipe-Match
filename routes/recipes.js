@@ -44,12 +44,12 @@ router.post('/remove', function (req, res, next) {
   let results = config.results
 
   // remove the recipe from the config
-  let recipeIdToDelete = req.body
+  let recipeIdToDelete = req.query.recipeId
   
   // delete recipe in general recipes
   for(let i=0; i<results.recipes.length; i++) {
     let recipe = results.recipes[i]
-    if(recipe.id == recipeIdToDelete) {
+    if('recipe-' + recipe.id === recipeIdToDelete) {
       results.recipes.splice(i, 1) // remove
       i=results.recipes.length // break
     }
@@ -58,7 +58,7 @@ router.post('/remove', function (req, res, next) {
   // delete recipe in my recipes
   for(let i=0; i<results.myRecipe.length; i++) {
     let recipe = results.myRecipe[i]
-    if(recipe.id == recipeIdToDelete) {
+    if('recipe-' + recipe.id == recipeIdToDelete) {
       results.myRecipe.splice(i, 1) // remove
       i=results.recipes.length // break
     }

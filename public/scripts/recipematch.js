@@ -53,6 +53,12 @@ function confirmSave() {
   }
 }
 
+function deleteRecipe() {
+  var recipeId = document.getElementsByClassName("recipe-card-back")[0].id;
+  $.post('/recipes/remove?recipeId=' + recipeId);
+  redirect('/search/my-recipes', 500);
+}
+
 function saveRecipe() {
   var recipeName = document.getElementById("recipeName").value;
   var recipeDesc = document.getElementById("recipeDesc").value;
@@ -241,6 +247,10 @@ window.onload = () => {
     // get the recipe data from the server
     $.get('/recipes?recipeId=' + recipeId, (recipeData) => {
       fillRecipeDetails(recipeData);
+      $('.recipe-card-back').attr('id', recipeId);
+      if (document.location.pathname === '/search/my-recipes' && document.getElementsByClassName('popup-bg').length > 0) {
+        $('.deleteRecipeSubmit').css('display', 'block');
+      }
       // $('.search-view').append(`<div class="popup-bg"><div class="recipe-card-back">${
       //   JSON.stringify(recipeData)
       //   }</div></div>`)

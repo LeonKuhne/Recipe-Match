@@ -72,7 +72,7 @@ var config = {
         'Bake for another 25 minutes'
       ]
     }, {
-      id: 0,
+      id: 2,
       picture: 'https://i.kym-cdn.com/entries/icons/original/000/011/269/potato.jpg',
       title: 'Fresh Potato',
       description: 'Izza big potato with lotz of sauze.',
@@ -97,7 +97,7 @@ var config = {
       ]
     },
     {
-      id: 1,
+      id: 3,
       picture: 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/7/26/1/EA1A02_the-baked-potato_s4x3.jpg.rend.hgtvcom.826.620.suffix/1371599862583.jpeg',
       title: 'Baked Potato',
       description: 'Izza baked potato with lotz of sauze.',
@@ -122,10 +122,42 @@ var config = {
         'Set oven to 350',
         'Put potato in oven for 20 minutes'
       ]
+    },
+    {
+      id: 4,
+      picture: 'https://cdn-image.foodandwine.com/sites/default/files/styles/medium_2x/public/201404-xl-panko-chicken-parmesan.jpg?itok=a2KJsevW',
+      title: 'Chicken Parmesan',
+      description: 'Chicken with a crispy crust and less sauce than traditional.',
+      duration: '0D-0H-45M',
+      difficulty: 'Medium',
+      cuisine: 'Italian',
+      ingredients: [
+        {
+          ingredientAmt: '2',
+          ingredientUnit: 'tbsp',
+          ingredientName: 'Sauce'
+        },
+        {
+          ingredientAmt: '1',
+          ingredientUnit: 'c',
+          ingredientName: 'Mozzarella'
+        },
+        {
+          ingredientAmt: '4',
+          ingredientUnit: 'c',
+          ingredientName: 'Chicken breast'
+        }
+      ],
+      instructions: [
+        'Preheat oven to 450 degrees F',
+        'Coat chicken with sauce',
+        'Bake for 30 minutes',
+        'Sprinkle mozzarella on top of chicken'
+      ]
     }
     ],
     myRecipe: [{
-      id: 0,
+      id: 4,
       picture: 'https://cdn-image.foodandwine.com/sites/default/files/styles/medium_2x/public/201404-xl-panko-chicken-parmesan.jpg?itok=a2KJsevW',
       title: 'Chicken Parmesan',
       description: 'Chicken with a crispy crust and less sauce than traditional.',
