@@ -63,7 +63,7 @@ router.get('/ingredients', function (req, res, next) {
 });
 
 router.get('/my-recipes', function (req, res, next) {
-  let results = filterRecipes(config.results.myRecipes, req.query.query)
+  let results = filterRecipes(config.results.myRecipe, req.query.query)
   res.render('search', { title: 'My Recipes', placeholder: 'Search my recipes...', pageStyle: 'my-recipes-page', searchType: '', searchResults: results });
 });
 
