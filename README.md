@@ -20,10 +20,10 @@ To delete a recipe, navigate to 'My Recipes', then click on a recipe to view
 its details. Scrolling to the bottom will reveal the 'delete' button. 
 
 ### Contact
-Leon Kuhne - lxk1170@rit.edu
-Josh VerDow - jtv9019@rit.edu
-Adam Del Rosso - avd5772@rit.edu
-Jesse Chen - jxc8924@rit.edu
+- Leon Kuhne - lxk1170@rit.edu
+- Josh VerDow - jtv9019@rit.edu
+- Adam Del Rosso - avd5772@rit.edu
+- Jesse Chen - jxc8924@rit.edu
 
 ### Unsupported Features
 - calendar
