@@ -1,6 +1,6 @@
-# Recipe Match
+# Recipe Match v2
 
-A web application to end the struggle of figuring out what to make for dinner.
+The web application to end the struggle of figuring out what to make for dinner.
 
 ### Install / Access
 The website may be accessed [here](recipematch.leonkuhne.com).
@@ -17,6 +17,13 @@ first recipe card, labeled with a '+' and fill out the requested information.
 
 To delete a recipe, navigate to 'My Recipes', then click on a recipe to view
 its details. Scrolling to the bottom will reveal the 'delete' button.
+
+### Contact
+Leon Kuhne - lxk1170@rit.edu
+Josh VerDow - jtv9019@rit.edu
+Adam Del Rosso - avd5772@rit.edu
+Jesse Chen - jxc8924@rit.edu
+
 
 ### Unsupported Features
 - calendar
