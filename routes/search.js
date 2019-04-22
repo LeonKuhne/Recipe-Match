@@ -34,26 +34,40 @@ function listContains(collection, query) {
 function filterRecipes(collection, query) {
   if(query) {
     query = query.toLowerCase() 
-  }
+    var ings = []
+    ings.push(query)
+    if(query.includes(",")) {
+      ings = query.split(",")
+    }
+    query = query.toLowerCase() 
+  
 
-  let list = []
-  for(let elem of collection) {
-    if(has(elem.title, query) || has(elem.description, query) || listContains(elem.instructions, query)) {
-    	list.push(elem)
+    let list = []
+    for(let ing of ings) {
+      for(let elem of collection) {
+        if(has(elem.title, ing) || has(elem.description, ing) || listContains(elem.instructions, ing)) {
+    	    list.push(elem)
+        } else {
+    	    for(let ingredient of elem.ingredients) {
+	      if(has(ingredient.ingredientName, ing)) {
+	        list.push(elem)
+	      }
+	    }
+        }
+      }
+   }
+    if(list.length == 0)  {
+      return collection
     } else {
-    	for(let ingredient of elem.ingredients) {
-	  if(has(ingredient.ingredientName, query)) {
-	    list.push(elem)
-	  }
-	}
+      var filteredList = list.filter(function(elem, index, self)  {
+        return index === self.indexOf(elem);
+      })
+      return filteredList
     }
   }
-
-  if(list.length == 0)  {
+  else {
     return collection
   }
-
-  return list
 }
 
 router.get('/recipes', function (req, res, next) {
