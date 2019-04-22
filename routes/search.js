@@ -32,6 +32,10 @@ function listContains(collection, query) {
 
 // search filter functionality
 function filterRecipes(collection, query) {
+  if(query) {
+    query = query.toLowerCase() 
+  }
+
   let list = []
   for(let elem of collection) {
     if(has(elem.title, query) || has(elem.description, query) || listContains(elem.instructions, query)) {
