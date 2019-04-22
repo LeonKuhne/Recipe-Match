@@ -39,8 +39,8 @@ function submitAddRecipe(recipeObj) {
     duration: recipeObj.time,
     difficulty: recipeObj.diff,
     cuisine: recipeObj.cuisine,
-    ingredients: recipeObj.ingredients,
-    instructions: recipeObj.instructions
+    ingredients: JSON.stringify(recipeObj.ingredients),
+    instructions: JSON.stringify(recipeObj.instructions)
   }
 
   $.post("/recipes/add", newRecipeData)
