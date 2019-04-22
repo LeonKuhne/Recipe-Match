@@ -16,10 +16,14 @@ function findRecipe(recipeId) {
   return {}
 }
 
+function has(str, query){
+  return str && str.toLowerCase().includes(query)
+}
+
 // does list of strings contain query
 function listContains(collection, query) {
   for(let elem of collection) {
-    if(elem.includes(query)) {
+    if(has(elem, query)) {
       return true
     }
   }
@@ -30,11 +34,11 @@ function listContains(collection, query) {
 function filterRecipes(collection, query) {
   let list = []
   for(let elem of collection) {
-    if((elem.title && elem.title.includes(query)) || (elem.description && elem.description.includes(query)) || listContains(elem.instructions, query)) {
+    if(has(elem.title, query) || has(elem.description, query) || listContains(elem.instructions, query)) {
     	list.push(elem)
     } else {
     	for(let ingredient of elem.ingredients) {
-	  if(ingredient.ingredientName && ingredient.ingredientName.includes(query)) {
+	  if(has(ingredient.ingredientName, query)) {
 	    list.push(elem)
 	  }
 	}
