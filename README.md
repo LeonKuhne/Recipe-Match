@@ -3,7 +3,7 @@
 The web application to end the struggle of figuring out what to make for dinner.
 
 ### Install / Access
-The website may be accessed [here](recipematch.leonkuhne.com).
+The website may be accessed [here](http://recipematch.leonkuhne.com).
 
 ### Instructions
 To get started using RecipeMatch, simply select the type of search you'd like
