@@ -10,20 +10,20 @@ To get started using RecipeMatch, simply select the type of search you'd like
 to perform (recipes or ingredients), type in the desired query, and hit enter
 to submit and receive your results!
 
-Tip: When searching for ingredients, use the spacebar to separate ingredients.
+Tip: When searching for ingredients, use the spacebar to separate.
 
-If you want to add your own recipe, navigate to 'My Recipes', then click the
-first recipe card, labeled with a '+' and fill out the requested information.
+If you want to add your own recipe, navigate to 'My Recipes' (sidebar on the
+right), then click the first recipe card, labeled with a '+' and fill out the
+requested information. Hit 'save' at the bottom to submit your new recipe.
 
 To delete a recipe, navigate to 'My Recipes', then click on a recipe to view
-its details. Scrolling to the bottom will reveal the 'delete' button.
+its details. Scrolling to the bottom will reveal the 'delete' button. 
 
 ### Contact
 Leon Kuhne - lxk1170@rit.edu
 Josh VerDow - jtv9019@rit.edu
 Adam Del Rosso - avd5772@rit.edu
 Jesse Chen - jxc8924@rit.edu
-
 
 ### Unsupported Features
 - calendar
